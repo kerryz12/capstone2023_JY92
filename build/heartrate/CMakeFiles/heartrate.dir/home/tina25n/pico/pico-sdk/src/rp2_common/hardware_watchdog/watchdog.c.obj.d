@@ -26,7 +26,7 @@ heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/har
  /home/tina25n/pico/capstone2023_JY92/build/generated/pico_base/pico/version.h \
  /home/tina25n/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
  /home/tina25n/pico/capstone2023_JY92/build/generated/pico_base/pico/config_autogen.h \
- /home/tina25n/pico/pico-sdk/src/boards/include/boards/pico.h \
+ /home/tina25n/pico/pico-sdk/src/boards/include/boards/pico_w.h \
  /home/tina25n/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/tina25n/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
  /home/tina25n/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \

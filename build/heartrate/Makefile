@@ -168,6 +168,534 @@ heartrate.c.s:
 	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/heartrate.c.s
 .PHONY : heartrate.c.s
 
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.obj: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.obj
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.i: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.i
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.s: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.c.s
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.obj: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.obj
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.i: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.i
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.s: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.c.s
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.obj: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.obj
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.i: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.i
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.s: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.c.s
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.obj: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.obj
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.i: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.i
+
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.s: home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.obj: home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.i: home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.i
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.i
+
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.s: home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.s
+.PHONY : home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.c.s
+
 home/tina25n/pico/pico-sdk/src/common/pico_sync/critical_section.obj: home/tina25n/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
 .PHONY : home/tina25n/pico/pico-sdk/src/common/pico_sync/critical_section.obj
 
@@ -440,6 +968,78 @@ home/tina25n/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj:
 	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.obj: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.i: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.s: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.obj: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.i: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.s: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.obj: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.i: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.s: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s
+
 home/tina25n/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj
 
@@ -495,6 +1095,30 @@ home/tina25n/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: ho
 home/tina25n/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj:
 	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.obj: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.i: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.s: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
 
 home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj: home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj
@@ -664,6 +1288,54 @@ home/tina25n/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
 	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.c.s
+
 home/tina25n/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj
 
@@ -695,6 +1367,198 @@ home/tina25n/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: home/tina25n/p
 home/tina25n/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
 	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.c.s
 
 home/tina25n/pico/pico-sdk/src/rp2_common/pico_divider/divider.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_divider/divider.obj
@@ -767,6 +1631,30 @@ home/tina25n/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj: ho
 home/tina25n/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj:
 	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s
 
 home/tina25n/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj
@@ -1024,29 +1912,77 @@ home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
 	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 
-home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.obj
 
 # target to build an object file
-home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj:
-	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
 
-home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.i
 
 # target to preprocess a source file
-home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
-	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i
 
-home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.s
 
 # target to generate assembly for a file
-home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
-	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s
 
 home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj
@@ -1072,6 +2008,30 @@ home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
 	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 .PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.obj: home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.obj
+
+# target to build an object file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.i: home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.i
+
+# target to preprocess a source file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i
+
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.s: home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.s
+
+# target to generate assembly for a file
+home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s:
+	cd /home/tina25n/pico/capstone2023_JY92/build && $(MAKE) $(MAKESILENT) -f heartrate/CMakeFiles/heartrate.dir/build.make heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
+.PHONY : home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1085,6 +2045,72 @@ help:
 	@echo "... heartrate.obj"
 	@echo "... heartrate.i"
 	@echo "... heartrate.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ctrl.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_ll.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_lwip.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/cyw43-driver/src/cyw43_stats.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.s"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.obj"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.i"
+	@echo "... home/tina25n/pico/pico-sdk/lib/tinyusb/src/tusb.s"
 	@echo "... home/tina25n/pico/pico-sdk/src/common/pico_sync/critical_section.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/common/pico_sync/critical_section.i"
 	@echo "... home/tina25n/pico/pico-sdk/src/common/pico_sync/critical_section.s"
@@ -1119,6 +2145,15 @@ help:
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.i"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.s"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_divider/divider.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_dma/dma.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_exception/exception.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_flash/flash.s"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.i"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.s"
@@ -1126,6 +2161,9 @@ help:
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_irq/irq.i"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_irq/irq.s"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pio/pio.s"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pll/pll.i"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_pll/pll.s"
@@ -1147,10 +2185,40 @@ help:
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.i"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_base.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_async_context/async_context_threadsafe_background.s"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_freertos.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_poll.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_arch/cyw43_arch_threadsafe_background.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cybt_shared_bus/cybt_shared_bus_driver.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_bus_pio_spi.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_cyw43_driver/cyw43_driver.s"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_divider/divider.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj"
@@ -1160,6 +2228,9 @@ help:
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_double/double_math.i"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_double/double_math.s"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.s"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.i"
@@ -1192,12 +2263,21 @@ help:
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.i"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.s"
-	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj"
-	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i"
-	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.s"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i"
 	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.obj"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.i"
+	@echo "... home/tina25n/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.s"
 .PHONY : help
 
 

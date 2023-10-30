@@ -38,6 +38,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/tina25n/pico/pico-sdk/src/CMakeLists.txt"
   "/home/tina25n/pico/pico-sdk/src/board_setup.cmake"
   "/home/tina25n/pico/pico-sdk/src/boards/generic_board.cmake"
+  "/home/tina25n/pico/pico-sdk/src/boards/pico_w.cmake"
   "/home/tina25n/pico/pico-sdk/src/common/CMakeLists.txt"
   "/home/tina25n/pico/pico-sdk/src/common/boot_picoboot/CMakeLists.txt"
   "/home/tina25n/pico/pico-sdk/src/common/boot_uf2/CMakeLists.txt"

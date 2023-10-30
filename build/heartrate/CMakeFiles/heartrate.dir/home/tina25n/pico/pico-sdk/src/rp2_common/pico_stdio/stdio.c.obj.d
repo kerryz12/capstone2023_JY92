@@ -30,7 +30,7 @@ heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pic
  /home/tina25n/pico/capstone2023_JY92/build/generated/pico_base/pico/version.h \
  /home/tina25n/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
  /home/tina25n/pico/capstone2023_JY92/build/generated/pico_base/pico/config_autogen.h \
- /home/tina25n/pico/pico-sdk/src/boards/include/boards/pico.h \
+ /home/tina25n/pico/pico-sdk/src/boards/include/boards/pico_w.h \
  /home/tina25n/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/tina25n/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
  /home/tina25n/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
@@ -49,8 +49,4 @@ heartrate/CMakeFiles/heartrate.dir/home/tina25n/pico/pico-sdk/src/rp2_common/pic
  /home/tina25n/pico/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
  /home/tina25n/pico/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
  /home/tina25n/pico/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h \
- /home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_uart/include/pico/stdio_uart.h \
- /home/tina25n/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h \
- /home/tina25n/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/uart.h \
- /home/tina25n/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/uart.h \
- /home/tina25n/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/dreq.h
+ /home/tina25n/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h
