@@ -1,3 +1,0 @@
-/home/tina25n/pico/capstone2023_JY92/build/pioasm/CMakeFiles/pioasm.dir
-/home/tina25n/pico/capstone2023_JY92/build/pioasm/CMakeFiles/edit_cache.dir
-/home/tina25n/pico/capstone2023_JY92/build/pioasm/CMakeFiles/rebuild_cache.dir
