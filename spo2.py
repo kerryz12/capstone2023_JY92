@@ -1,6 +1,7 @@
 from machine import SoftI2C, I2C, Pin
 from utime import sleep
-from lib.max30102 import *
+from lib.max30102 import MAX30102
+from lib.circular_buffer import CircularBuffer
 from lib.hr_algorithm import HeartBeat
 
 # pin values
@@ -22,13 +23,15 @@ ir_ac = HeartBeat()
 red_ac = HeartBeat()
 
 # SPO2 Algorithm Values
-ratio = 1
-a = 1
-b = 1
-c = 1
+a = 1.5958422
+b = -34.6596622
+c = 33.1098759
 spo2 = 1
-average_spo2 = 1
-average_spo2_buffer = CircularBuffer(SPO2_AVERAGE_SAMPLES)
+average_spo2 = 0
+average_spo2_buffer = []
+
+for i in range(SPO2_AVERAGE_SAMPLES):
+    average_spo2_buffer.append(float(0))
 
 while(True):
     sensor.check()
@@ -46,14 +49,16 @@ while(True):
         ratio = (red/red_dc) / (ir/ir_dc)
         spo2 = a*a*ratio + b*ratio + c
 
-        average_spo2_buffer.append(spo2)
+        for i in range(SPO2_AVERAGE_SAMPLES-1):
+            average_spo2_buffer[i] = average_spo2_buffer[i+1]
 
-        for i in range(len(average_spo2_buffer)):
-            average_spo2 += i
+        average_spo2_buffer[SPO2_AVERAGE_SAMPLES-1] = spo2
 
-        average_spo2 = average_spo2 / len(average_spo2_buffer)
+        for i in range(SPO2_AVERAGE_SAMPLES):
+            average_spo2 += average_spo2_buffer[i]
 
+        average_spo2 = average_spo2 / SPO2_AVERAGE_SAMPLES
+
+        print(spo2)
         print(average_spo2)
-
-
-
+        average_spo2 = 0

@@ -1,13 +1,22 @@
 from ucollections import deque
 
+
 class CircularBuffer(object):
+
     ''' Very simple implementation of a circular buffer based on deque '''
+
     def __init__(self, max_size):
         self.data = deque((), max_size, True)
         self.max_size = max_size
 
     def __len__(self):
         return len(self.data)
+
+    def copy(self):
+        copy = CircularBuffer(self.max_size)
+        copy.data = self.data.copy()
+
+        return copy
 
     def is_empty(self):
         return not bool(self.data)
@@ -16,7 +25,9 @@ class CircularBuffer(object):
         try:
             self.data.append(item)
         except IndexError:
+
             # deque full, popping 1st item out
+
             self.data.popleft()
             self.data.append(item)
 

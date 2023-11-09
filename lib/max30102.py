@@ -18,7 +18,7 @@ from machine import SoftI2C
 from ustruct import unpack
 from utime import sleep_ms, ticks_diff, ticks_ms
 
-from max30102.circular_buffer import CircularBuffer
+from circular_buffer import CircularBuffer
 
 # I2C address (7-bit address)
 MAX3010X_I2C_ADDRESS = 0x57  # Right-shift of 0xAE, 0xAF
