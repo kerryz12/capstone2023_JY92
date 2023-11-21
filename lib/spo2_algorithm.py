@@ -1,135 +1,56 @@
-# SPO2 Algorithm
+from machine import SoftI2C, I2C, Pin
+from utime import sleep
+from lib.max30102 import MAX30102
+from lib.circular_buffer import CircularBuffer
+from lib.hr_algorithm import HeartBeat
 
-'''
-class IR_AC_Signal():
+# how many samples to keep to take average of for SPO2 calculation
+SPO2_AVERAGE_SAMPLES = 32
+
+class SPO2(object):
     def __init__(self):
-        self.IR_AC_Max = 20
-        self.IR_AC_Min = -20
+        # SpO2 Algorithm Values
+        self.a = 1.5958422
+        self.b = -34.6596622
+        self.c = 33.1098759
 
-        self.IR_AC_Signal_Current = 0
-        self.IR_AC_Signal_Previous = 0
-        self.IR_AC_Signal_min = 0
-        self.IR_AC_Signal_max = 0
-        self.IR_Average_Estimated = 0
+        # initialize SpO2 variables
+        self.spo2 = 1
+        self.average_spo2 = 0
+        self.average_spo2_buffer = []
 
-        self.positiveEdge = 0
-        self.negativeEdge = 0
-        self.ir_avg_reg = 0
+    def calculateSPO2(self, red, red_dc, ir, ir_dc):
+        # calculate the SpO2 level
+        ratio = (red/red_dc) / (ir/ir_dc)
+        return self.a*self.a*ratio + self.b*ratio + self.c
+    
+    def calculateAverageSPO2(self, spo2):
+        # if list containing values for average calculation is full
+        if (len(self.average_spo2_buffer) == SPO2_AVERAGE_SAMPLES):
 
-        self.cbuf = [0] * 32
-        self.offset = 0
+            # rotate the list
+            for i in range(SPO2_AVERAGE_SAMPLES-1):
+                self.average_spo2_buffer[i] = self.average_spo2_buffer[i+1]
 
-        self.FIRCoeffs = [172, 321, 579, 927, 1360, 1858, 2390, 2916, 3391, 3768, 4012, 4096];
+            self.average_spo2_buffer[SPO2_AVERAGE_SAMPLES-1] = self.spo2
 
-    def mul16(self, x, y):
-        return(x * y)
+            # calculate the average SpO2 value
+            for i in range(SPO2_AVERAGE_SAMPLES):
+                self.average_spo2 += self.average_spo2_buffer[i]
 
-    def lowPassFIRFilter(self, din):
-        self.cbuf[self.offset] = din
+            average_spo2 = self.average_spo2 / SPO2_AVERAGE_SAMPLES
 
-        z = self.mul16(self.FIRCoeffs[11], self.cbuf[(self.offset - 11) & 0x1F])
-      
-        for i in range(11):
-            z += self.mul16(self.FIRCoeffs[i], self.cbuf[(self.offset - i) & 0x1F] + self.cbuf[(self.offset - 22 + i) & 0x1F])
+            print(average_spo2)
+            average_spo2 = 0
 
-        self.offset += 1
-        self.offset %= 32 #Wrap condition
+        # otherwise append the samples to the list until the list is full
+        else:
+            self.average_spo2_buffer.append(self.spo2)
 
-        return(int(z >> 15))
+            for i in range(SPO2_AVERAGE_SAMPLES):
+                self.average_spo2 += self.average_spo2_buffer[i]
 
-    def findACValues(self, sample):
-        #  Save current state
-        self.IR_AC_Signal_Previous = self.IR_AC_Signal_Current
+            average_spo2 = self.average_spo2 / SPO2_AVERAGE_SAMPLES
 
-        #  Process next data sample
-        self.IR_AC_Signal_Current = self.lowPassFIRFilter(sample - self.IR_Average_Estimated)
-
-        #  Detect positive zero crossing (rising edge)
-        if ((self.IR_AC_Signal_Previous < 0) and (self.IR_AC_Signal_Current >= 0)):
-            self.IR_AC_Max = self.IR_AC_Signal_max
-            self.IR_AC_Min = self.IR_AC_Signal_min
-
-            self.positiveEdge = 1
-            self.negativeEdge = 0
-            self.IR_AC_Signal_max = 0
-
-        #  Detect negative zero crossing (falling edge)
-        if ((self.IR_AC_Signal_Previous > 0) and (self.IR_AC_Signal_Current <= 0)):
-            self.positiveEdge = 0
-            self.negativeEdge = 1
-            self.IR_AC_Signal_min = 0
-
-        #  Find Maximum value in positive cycle
-        if (self.positiveEdge and (self.IR_AC_Signal_Current > self.IR_AC_Signal_Previous)): 
-            self.IR_AC_Signal_max = self.IR_AC_Signal_Current
-
-        #  Find Minimum value in negative cycle
-        if (self.negativeEdge and (self.IR_AC_Signal_Current < self.IR_AC_Signal_Previous)):
-            self.IR_AC_Signal_min = self.IR_AC_Signal_Current
-
-class Red_AC_Signal():
-    def __init__(self):
-        self.Red_AC_Max = 20
-        self.Red_AC_Min = -20
-
-        self.Red_AC_Signal_Current = 0
-        self.Red_AC_Signal_Previous = 0
-        self.Red_AC_Signal_min = 0
-        self.Red_AC_Signal_max = 0
-        self.Red_Average_Estimated = 0
-
-        self.positiveEdge = 0
-        self.negativeEdge = 0
-        self.red_avg_reg = 0
-
-        self.cbuf = [0] * 32
-        self.offset = 0
-
-        self.FIRCoeffs = [172, 321, 579, 927, 1360, 1858, 2390, 2916, 3391, 3768, 4012, 4096];
-
-    def mul16(self, x, y):
-        return(x * y)
-
-    def lowPassFIRFilter(self, din):
-        self.cbuf[self.offset] = din
-
-        z = self.mul16(self.FIRCoeffs[11], self.cbuf[(self.offset - 11) & 0x1F])
-      
-        for i in range(11):
-            z += self.mul16(self.FIRCoeffs[i], self.cbuf[(self.offset - i) & 0x1F] + self.cbuf[(self.offset - 22 + i) & 0x1F])
-
-        self.offset += 1
-        self.offset %= 32 #Wrap condition
-
-        return(int(z >> 15))
-
-    def findACValues(self, sample):
-        #  Save current state
-        self.Red_AC_Signal_Previous = self.Red_AC_Signal_Current
-
-        #  Process next data sample
-        self.Red_AC_Signal_Current = self.lowPassFIRFilter(sample - self.Red_Average_Estimated)
-
-        #  Detect positive zero crossing (rising edge)
-        if ((self.Red_AC_Signal_Previous < 0) and (self.Red_AC_Signal_Current >= 0)):
-            self.Red_AC_Max = self.Red_AC_Signal_max
-            self.Red_AC_Min = self.Red_AC_Signal_min
-
-            self.positiveEdge = 1
-            self.negativeEdge = 0
-            self.Red_AC_Signal_max = 0
-
-        #  Detect negative zero crossing (falling edge)
-        if ((self.Red_AC_Signal_Previous > 0) and (self.Red_AC_Signal_Current <= 0)):
-            self.positiveEdge = 0
-            self.negativeEdge = 1
-            self.Red_AC_Signal_min = 0
-
-        #  Find Maximum value in positive cycle
-        if (self.positiveEdge and (self.Red_AC_Signal_Current > self.Red_AC_Signal_Previous)): 
-            self.Red_AC_Signal_max = self.Red_AC_Signal_Current
-
-        #  Find Minimum value in negative cycle
-        if (self.negativeEdge and (self.Red_AC_Signal_Current < self.Red_AC_Signal_Previous)):
-            self.Red_AC_Signal_min = self.Red_AC_Signal_Current
-'''
+            print(average_spo2)
+            average_spo2 = 0

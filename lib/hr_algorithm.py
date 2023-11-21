@@ -1,6 +1,10 @@
 # Micropython version of SparkFun_MAX3010x_Sensor_Library
 # Taken from https://github.com/kandizzy/esp32-micropython/blob/master/PPG/ppg/heartbeat.py
 
+import time
+
+RATE_SIZE = 16 #Increase this for more averaging. 4 is good.
+
 class HeartBeat(object):
     
     def __init__(self):
@@ -83,3 +87,65 @@ class HeartBeat(object):
         
         #print("checkForBeat", beatDetected)
         return beatDetected
+    
+class DetectHeartbeat(object):
+    def __init__(self):
+        #Variables for getting a finger pulse
+        self.l_threshold = 12000
+        self.u_threshold = 16000
+
+        self.lastBeat = 0
+        self.beat = HeartBeat()
+        self.beatsPerMinute = 0
+        self.beatAvg = 0
+        self.prev_beatAvg = 0
+        self.rateSpot = 0
+
+        self.start_finger_time = 0
+        self.end_finger_time = 0
+        self.finger_on = False
+            
+        self.rates = [RATE_SIZE]
+
+    def detectHeartbeat(self, ir):
+        if (self.finger_on == False):
+            self.start_finger_time = time.ticks_ms()
+            self.finger_on = True
+            print("Loading...")
+        
+        #We sensed a beat!
+        if(self.beat.checkForBeat(ir)):
+            delta = time.ticks_ms() - self.lastBeat
+            self.lastBeat = time.ticks_ms()
+
+            self.beatsPerMinute = 60 / (delta / 1000.0)
+            
+            self.prev_beatAvg = self.beatAvg
+            #print(delta)
+            #print("Beats Per Minute:", beatsPerMinute)
+            
+            if(self.beatsPerMinute < 255 and self.beatsPerMinute > 20):
+                self.rates.append(self.beatsPerMinute) #Store this reading in the array
+                rateSpot = self.rateSpot +1
+                rateSpot %= RATE_SIZE #Wrap variable
+
+                print("Calibrating..")
+                
+                #Take average of readings
+                self.beatAvg = 0
+                i = 0
+                for x in self.rates:
+                    #print(x)
+                    self.beatAvg += x
+                    i += 1
+                    if (i==RATE_SIZE):
+                        self.beatAvg = self.beatAvg / RATE_SIZE
+                        print("Beat Average:", self.beatAvg)
+                        #print(beatAvg) #For the serial plotter
+                        self.rates.pop(0)
+                        #time.sleep_ms(5)
+                        #Die Temp has an inherent resolution of 0.0625°C, but be aware that the accuracy is ±1°C.
+                        #temperature_C = sensor.read_temperature()
+                        #print("Temperature: ", temperature_C, "°C")
+    def getBeatAverage(self):
+        return self.beatAvg
