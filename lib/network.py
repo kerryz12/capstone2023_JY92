@@ -13,28 +13,34 @@ f = open("KEY", "r")
 ssid = f.readline()
 password = f.readline()
 
-def connect():
-    wlan = network.WLAN(network.STA_IF)
-    wlan.active(True)
-    wlan.connect(ssid, password)
-    while wlan.isconnected() == False:
-        print('Waiting for connection...')
-        sleep(1)
-    print(wlan.ifconfig())
+class Network(object):
+    def __init__(self):
+        self.host = '10.0.0.226'
+        self.port = 64000
 
-def createUDPSocket():
-    # Create a UDP socket
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    def connect(self):
+        self.wlan = network.WLAN(network.STA_IF)
+        self.wlan.active(True)
+        self.wlan.connect(ssid, password)
+        while self.wlan.isconnected() == False:
+            print('Waiting for connection...')
+            sleep(1)
+        print(self.wlan.ifconfig())
 
-    host, port = '10.0.0.226', 64000
-    server_address = (host, port)
+    def createUDPSocket(self):
+        # Create a UDP socket
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        
+    def createTCPSocket(self):
+        # Create a UDP socket
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-def testSocket(sock, server_address):
-    # Send a few messages
-    for i in range(10):
+    def testSocket(self, sock, server_address):
+        # Send a few messages
+        for i in range(10):
 
-        # Pack three 32-bit floats into message and send
-        message = "Hello"
-        sock.sendto(message.encode(), server_address)
+            # Pack three 32-bit floats into message and send
+            message = "Hello"
+            sock.sendto(message.encode(), server_address)
 
-        sleep(1)
+            sleep(1)
