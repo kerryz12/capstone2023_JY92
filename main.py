@@ -30,9 +30,10 @@ red_ac = HeartBeat()
 
 spo2_obj = SPO2()
 heartbeat_obj = DetectHeartbeat()
+network_obj = Network()
 
-connect()
-createUDPSocket()
+network_obj.connect()
+network_obj.createTCPSocket()
 
 # main loop
 while(True):
@@ -52,5 +53,3 @@ while(True):
 
         spo2 = spo2_obj.calculateSPO2(red, red_dc, ir, ir_dc)
         average_spo2 = spo2_obj.calculateAverageSPO2(spo2)
-
-
