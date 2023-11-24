@@ -6,4 +6,4 @@ def tick(timer):
     global led
     led.toggle()
 
-tim.init(freq=2.5, mode=Timer.PERIODIC, callback=tick)
+tim.init(freq=3, mode=Timer.PERIODIC, callback=tick)

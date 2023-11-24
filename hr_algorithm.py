@@ -4,7 +4,6 @@
 class HeartBeat(object):
     
     def __init__(self):
-        print("Please place finger on the sensor!")
         self.IR_AC_Max = 20
         self.IR_AC_Min = -20
 
