@@ -3,18 +3,22 @@ import sys
 from struct import unpack
 
 # Create a UDP socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
 host, port = '0.0.0.0', 64000
 server_address = (host, port)
 
-print(f'Starting UDP server on {host} port {port}')
-sock.bind(server_address)
+print(f'Starting TCP server on {host} port {port}')
 
-while True:
-    # Wait for message
-    message, address = sock.recvfrom(1024)
-
-    print(f'Received {len(message)} bytes:')
-    print(message)
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind((host, port))
+    s.listen()
+    conn, addr = s.accept()
+    with conn:
+        print(f"Connected by {addr}")
+        while True:
+            data = conn.recv(1024)
+            if not data:
+                break
+            conn.sendall(data)

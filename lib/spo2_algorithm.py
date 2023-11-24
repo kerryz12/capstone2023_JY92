@@ -47,7 +47,7 @@ class SPO2(object):
         else:
             self.average_spo2_buffer.append(self.spo2)
 
-            for i in range(SPO2_AVERAGE_SAMPLES):
+            for i in range(len(self.average_spo2_buffer)):
                 self.average_spo2 += self.average_spo2_buffer[i]
 
             average_spo2 = self.average_spo2 / SPO2_AVERAGE_SAMPLES

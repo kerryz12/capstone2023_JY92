@@ -21,7 +21,7 @@ from utime import sleep_ms, ticks_diff, ticks_ms
 from circular_buffer import CircularBuffer
 
 # I2C address (7-bit address)
-MAX3010X_I2C_ADDRESS = 0x57  # Right-shift of 0xAE, 0xAF
+MAX3010X_I2C_ADDRESS = 87  # Right-shift of 0xAE, 0xAF
 
 # Status Registers
 MAX30105_INT_STAT_1 = 0x00

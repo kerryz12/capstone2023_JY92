@@ -1,13 +1,8 @@
-from machine import SoftI2C, I2C, Pin
-from utime import sleep
+from machine import SoftI2C, Pin
 from lib.max30102 import MAX30102
-from lib.circular_buffer import CircularBuffer
 from lib.hr_algorithm import *
 from lib.spo2_algorithm import *
-from lib.network import *
-
-import network
-import socket
+#from lib.sockets import *
 
 # pin values
 SDA_PIN = 8
@@ -15,6 +10,8 @@ SCL_PIN = 9
 
 # how many samples to keep to take average of for SPO2 calculation
 SPO2_AVERAGE_SAMPLES = 32
+
+output = open('data/output.txt', 'a')
 
 # Create I2C object
 i2c = SoftI2C(sda=Pin(SDA_PIN), scl=Pin(SCL_PIN), freq=400000)
@@ -30,10 +27,16 @@ red_ac = HeartBeat()
 
 spo2_obj = SPO2()
 heartbeat_obj = DetectHeartbeat()
-network_obj = Network()
+
+'''network_obj = Network()
 
 network_obj.connect()
 network_obj.createTCPSocket()
+
+host, port = '10.0.0.226', 64000
+server_address = (host, port)
+
+network_obj.testSocket(server_address)'''
 
 # main loop
 while(True):
@@ -53,3 +56,8 @@ while(True):
 
         spo2 = spo2_obj.calculateSPO2(red, red_dc, ir, ir_dc)
         average_spo2 = spo2_obj.calculateAverageSPO2(spo2)
+
+        current_time = time.ticks_ms()
+        print("Heartbeat: " + str(average_heartbeat))
+        print("SPO2: " + str(average_spo2))
+        output.write(str(current_time) + str(average_heartbeat) + str(average_spo2))

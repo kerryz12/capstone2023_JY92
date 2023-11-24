@@ -13,7 +13,7 @@ SPO2_AVERAGE_SAMPLES = 32
 
 # Create I2C object
 i2c = SoftI2C(sda=Pin(SDA_PIN), scl=Pin(SCL_PIN), freq=400000)
-i2c.scan()
+print(i2c.scan())
 
 # set up sensor
 sensor = MAX30102(i2c=i2c)
