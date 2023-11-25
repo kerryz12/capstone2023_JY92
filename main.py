@@ -11,11 +11,6 @@ SCL_PIN = 9
 # how many samples to keep to take average of for SPO2 calculation
 SPO2_AVERAGE_SAMPLES = 32
 
-# open file to write data to
-# clear the file
-output = open('data/output.txt', 'w')
-output.close()
-
 # Create I2C object
 i2c = I2C(0, sda=Pin(SDA_PIN), scl=Pin(SCL_PIN))
 i2c = SoftI2C(sda=Pin(SDA_PIN), scl=Pin(SCL_PIN), freq=400000)
@@ -59,9 +54,6 @@ while(True):
         average_spo2 = spo2_obj.calculateAverageSPO2(spo2)
 
         # send the data to the TCP server
-        network_obj.sendTCPPacket(str(average_heartbeat) + " " + str(average_spo2) + "\n")
-
         current_time = time.ticks_ms()
-        # reopen the file in append mode
-        with open('data/output.txt', 'a') as output:
-            output.write(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2))
+        network_obj.sendTCPPacket(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + "\n")
+        
