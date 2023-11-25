@@ -3,6 +3,9 @@ from machine import SoftI2C, I2C, Pin
 import time
 from hr_algorithm import *
 
+import network
+import socket
+
 #Define parameters for the sensor and pi pico
 my_SDA_pin = 8  # I2C SDA pin number here!
 my_SCL_pin = 9  # I2C SCL pin number here!
@@ -42,6 +45,7 @@ spo2 = 1
 average_spo2 = 0
 average_spo2_buffer = []
 
+i2c = machine.I2C(0, scl=machine.Pin(my_SCL_pin), sda=machine.Pin(my_SDA_pin))
 
 #Set up the i2c communication from the pi pico to the sensor
 i2c = SoftI2C(sda=Pin(my_SDA_pin),
@@ -59,6 +63,32 @@ sensor.setup_sensor()
 #Set up average buffer
 for i in range(SPO2_AVERAGE_SAMPLES):
     average_spo2_buffer.append(float(0))
+
+ssid = 'TinTina'
+password = 'tinanguyen'
+
+def connect():
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    wlan.connect(ssid, password)
+    while wlan.isconnected() == False:
+        print('Waiting for connection...')
+        sleep(1)
+    print(wlan.ifconfig())
+
+connect()
+
+# Create a UDP socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+host, port = '192.168.59.115', 64000
+server_address = (host, port)
+
+try:
+    sock.connect(server_address)
+    print("Connected to TCP server")
+except:
+    print("Not connected")
 
 while (True):
     # The check() method has to be continuously polled, to check if
@@ -105,6 +135,8 @@ while (True):
                 ratio = (red_sample/red_dc) / (ir_sample/ir_dc)
                 spo2 = a*a*ratio + b*ratio + c
                 print("SPO2:", spo2)
+                message = str(spo2)
+                sock.send(message.encode('ascii'))
                 
                 for i in range(SPO2_AVERAGE_SAMPLES-1):
                     average_spo2_buffer[i] = average_spo2_buffer[i+1]
@@ -115,6 +147,7 @@ while (True):
                     average_spo2 += average_spo2_buffer[i]
                     
                 average_spo2 = average_spo2 / SPO2_AVERAGE_SAMPLES
+
                 
                 if(beatsPerMinute <= 255 and beatsPerMinute > 20):
                     rates.append(beatsPerMinute) #Store this reading in the array
