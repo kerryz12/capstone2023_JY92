@@ -147,5 +147,6 @@ class DetectHeartbeat(object):
                         #Die Temp has an inherent resolution of 0.0625°C, but be aware that the accuracy is ±1°C.
                         #temperature_C = sensor.read_temperature()
                         #print("Temperature: ", temperature_C, "°C")
+                        
     def getBeatAverage(self):
         return self.beatAvg

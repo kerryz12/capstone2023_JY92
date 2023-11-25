@@ -25,6 +25,8 @@ class SPO2(object):
         return self.a*self.a*ratio + self.b*ratio + self.c
     
     def calculateAverageSPO2(self, spo2):
+        average_spo2 = 0
+
         # if list containing values for average calculation is full
         if (len(self.average_spo2_buffer) == SPO2_AVERAGE_SAMPLES):
 
@@ -40,8 +42,7 @@ class SPO2(object):
 
             average_spo2 = self.average_spo2 / SPO2_AVERAGE_SAMPLES
 
-            print(average_spo2)
-            average_spo2 = 0
+            return average_spo2
 
         # otherwise append the samples to the list until the list is full
         else:
@@ -52,5 +53,4 @@ class SPO2(object):
 
             average_spo2 = self.average_spo2 / SPO2_AVERAGE_SAMPLES
 
-            print(average_spo2)
-            average_spo2 = 0
+            return average_spo2

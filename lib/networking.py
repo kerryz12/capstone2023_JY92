@@ -2,15 +2,10 @@ import network
 import socket
 from time import sleep
 
-class Network(object):
+class Networking(object):
     def __init__(self):
-        # store network information on local computer
-        f = open("KEY", "r")
-
-        self.ssid = f.readline()
-        self.password = f.readline()
-        self.host = '10.0.0.226'
-        self.port = 64000
+        self.ssid = 'TinTina'
+        self.password = 'tinanguyen'
 
     def connect(self):
         self.wlan = network.WLAN(network.STA_IF)
@@ -25,16 +20,15 @@ class Network(object):
         # Create a UDP socket
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         
-    def createTCPSocket(self):
+    def createTCPSocket(self, server_address):
         # Create a UDP socket
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    def testSocket(self, server_address):
-        # Send a few messages
-        for i in range(10):
+        try:
+            self.sock.connect(server_address)
+            print("Connected to TCP server")
+        except:
+            print("Not connected")
 
-            # Pack three 32-bit floats into message and send
-            message = "Hello"
-            self.sock.sendto(message.encode(), server_address)
-
-            sleep(1)
+    def sendTCPPacket(self, data):
+        self.sock.send(data.encode('ascii'))
