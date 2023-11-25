@@ -15,8 +15,6 @@ class SPO2(object):
         self.c = 33.1098759
 
         # initialize SpO2 variables
-        self.spo2 = 1
-        self.average_spo2 = 0
         self.average_spo2_buffer = []
 
     def calculateSPO2(self, red, red_dc, ir, ir_dc):
@@ -34,23 +32,19 @@ class SPO2(object):
             for i in range(SPO2_AVERAGE_SAMPLES-1):
                 self.average_spo2_buffer[i] = self.average_spo2_buffer[i+1]
 
-            self.average_spo2_buffer[SPO2_AVERAGE_SAMPLES-1] = self.spo2
+            self.average_spo2_buffer[SPO2_AVERAGE_SAMPLES-1] = spo2
 
             # calculate the average SpO2 value
             for i in range(SPO2_AVERAGE_SAMPLES):
-                self.average_spo2 += self.average_spo2_buffer[i]
+                average_spo2 += self.average_spo2_buffer[i]
 
-            average_spo2 = self.average_spo2 / SPO2_AVERAGE_SAMPLES
-
-            return average_spo2
+            return average_spo2 / SPO2_AVERAGE_SAMPLES
 
         # otherwise append the samples to the list until the list is full
         else:
-            self.average_spo2_buffer.append(self.spo2)
+            self.average_spo2_buffer.append(spo2)
 
             for i in range(len(self.average_spo2_buffer)):
-                self.average_spo2 += self.average_spo2_buffer[i]
+                average_spo2 += self.average_spo2_buffer[i]
 
-            average_spo2 = self.average_spo2 / SPO2_AVERAGE_SAMPLES
-
-            return average_spo2
+            return average_spo2 / len(self.average_spo2_buffer)
