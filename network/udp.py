@@ -7,11 +7,8 @@ from struct import pack
 import network
 import socket
 
-# store network information on local computer
-f = open("KEY", "r")
-
-ssid = f.readline()
-password = f.readline()
+ssid = 'TinTina'
+password = 'tinanguyen'
 
 def connect():
     wlan = network.WLAN(network.STA_IF)
@@ -27,7 +24,7 @@ connect()
 # Create a UDP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-host, port = '10.0.0.226', 64000
+host, port = '192.168.59.115', 64000
 server_address = (host, port)
 
 # Send a few messages
