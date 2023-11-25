@@ -32,5 +32,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             conn.sendall(data)
             decoded_data = data.decode('ascii')
             print(decoded_data)
+
+            # write data to output file
             with open('../data/output.txt', 'a') as f:
                 f.write(decoded_data)
