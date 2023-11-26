@@ -91,8 +91,8 @@ class HeartBeat(object):
 class DetectHeartbeat(object):
     def __init__(self):
         #Variables for getting a finger pulse
-        self.l_threshold = 12000
-        self.u_threshold = 16000
+        self.l_threshold = 15000
+        self.u_threshold = 17000
 
         self.lastBeat = 0
         self.beat = HeartBeat()
@@ -100,6 +100,7 @@ class DetectHeartbeat(object):
         self.beatAvg = 0
         self.prev_beatAvg = 0
         self.rateSpot = 0
+        self.delta = 0
 
         self.start_finger_time = 0
         self.end_finger_time = 0
@@ -108,45 +109,42 @@ class DetectHeartbeat(object):
         self.rates = [RATE_SIZE]
 
     def detectHeartbeat(self, ir):
-        if (self.finger_on == False):
-            self.start_finger_time = time.ticks_ms()
-            self.finger_on = True
-            print("Loading...")
-        
-        #We sensed a beat!
-        if(self.beat.checkForBeat(ir)):
-            delta = time.ticks_ms() - self.lastBeat
-            self.lastBeat = time.ticks_ms()
-
-            self.beatsPerMinute = 60 / (delta / 1000.0)
+        if (ir > self.l_threshold and ir < self.u_threshold):
+            if (self.finger_on == False):
+                self.start_finger_time = time.ticks_ms()
+                self.finger_on = True
+                print("Loading...")
             
-            self.prev_beatAvg = self.beatAvg
-            #print(delta)
-            #print("Beats Per Minute:", beatsPerMinute)
-            
-            if(self.beatsPerMinute < 255 and self.beatsPerMinute > 20):
-                self.rates.append(self.beatsPerMinute) #Store this reading in the array
-                rateSpot = self.rateSpot +1
-                rateSpot %= RATE_SIZE #Wrap variable
+            #We sensed a beat!
+            if(self.beat.checkForBeat(ir)):
+                self.delta = time.ticks_ms() - self.lastBeat
+                self.lastBeat = time.ticks_ms()
 
-                print("Calibrating..")
+                self.beatsPerMinute = 60 / (self.delta / 1000.0)
                 
-                #Take average of readings
-                self.beatAvg = 0
-                i = 0
-                for x in self.rates:
-                    #print(x)
-                    self.beatAvg += x
-                    i += 1
-                    if (i==RATE_SIZE):
-                        self.beatAvg = self.beatAvg / RATE_SIZE
-                        print("Beat Average:", self.beatAvg)
-                        #print(beatAvg) #For the serial plotter
-                        self.rates.pop(0)
-                        #time.sleep_ms(5)
-                        #Die Temp has an inherent resolution of 0.0625°C, but be aware that the accuracy is ±1°C.
-                        #temperature_C = sensor.read_temperature()
-                        #print("Temperature: ", temperature_C, "°C")
+                self.prev_beatAvg = self.beatAvg
+                print(self.delta)
+                print("Beats Per Minute:", self.beatsPerMinute)
+                
+                if(self.beatsPerMinute < 255 and self.beatsPerMinute > 20):
+                    self.rates.append(self.beatsPerMinute) #Store this reading in the array
+                    self.rateSpot = self.rateSpot + 1
+                    self.rateSpot %= RATE_SIZE #Wrap variable
+
+                    print("Calibrating..")
+                    
+                    #Take average of readings
+                    self.beatAvg = 0
+                    i = 0
+                    for x in self.rates:
+                        #print(x)
+                        self.beatAvg += x
+                        i += 1
+                        if (i==RATE_SIZE):
+                            self.beatAvg = self.beatAvg / RATE_SIZE
+                            print("Beat Average:", self.beatAvg)
+                            #print(beatAvg) #For the serial plotter
+                            self.rates.pop(0)
                         
     def getBeatAverage(self):
         return self.beatAvg
