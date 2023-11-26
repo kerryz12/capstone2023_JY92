@@ -103,7 +103,7 @@ while (True):
         ir_sample = sensor.pop_ir_from_storage()
 
         
-        #print(ir_sample, ",", red_sample)
+        print(ir_sample, ",", red_sample)
         #Printing the raw LED values for debugging
         #if(ir_sample>0):
         #    print(ir_sample)

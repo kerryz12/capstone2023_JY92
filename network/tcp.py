@@ -22,16 +22,21 @@ def connect():
 connect()
 
 # Create a UDP socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 host, port = '192.168.59.115', 64000
 server_address = (host, port)
 
+try:
+    sock.connect(server_address)
+    print("Connected to TCP server")
+except:
+    print("Not connected")
+
 # Send a few messages
 for i in range(10):
 
-    # Pack three 32-bit floats into message and send
-    message = "Hello"
-    sock.sendto(message.encode(), server_address)
+    message = 'hello'
+    sock.send(message.encode('ascii'))
 
     sleep(1)
