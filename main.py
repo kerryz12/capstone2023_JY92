@@ -29,7 +29,7 @@ spo2_obj = SPO2()
 heartbeat_obj = DetectHeartbeat()
 
 # set up wifi and TCP communication protocols
-host, port = '192.168.59.115', 64000
+host, port = '10.0.0.196', 64000
 server_address = (host, port)
 
 network_obj = Networking()
