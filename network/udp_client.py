@@ -8,10 +8,10 @@ import network
 import socket
 
 # store network information on local computer
-f = open("KEY", "r")
+#f = open("KEY", "r")
 
-ssid = f.readline()
-password = f.readline()
+ssid = 'TinTina'
+password = 'tinanguyen'
 
 def connect():
     wlan = network.WLAN(network.STA_IF)

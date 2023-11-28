@@ -9,9 +9,8 @@ my_SCL_pin = 9  # I2C SCL pin number here!
 my_i2c_freq = 400000  # I2C frequency (Hz) here!
 
 #Variables for getting a finger pulse
-l_threshold = 15000
+l_threshold = 7000
 u_threshold = 17000
-
 lastBeat = 0
 beat = HeartBeat()
 beatsPerMinute = 0
@@ -37,12 +36,12 @@ red_ac = HeartBeat()
 # SPO2 Algorithm Values
 a = 1.5958422
 b = -34.6596622
-c = 33.1098759
+c = 112.6898759
 spo2 = 1
 average_spo2 = 0
 average_spo2_buffer = []
 
-
+i2c = machine.I2C(0, scl=machine.Pin(my_SCL_pin), sda=machine.Pin(my_SDA_pin))
 #Set up the i2c communication from the pi pico to the sensor
 i2c = SoftI2C(sda=Pin(my_SDA_pin),
               scl=Pin(my_SCL_pin),
@@ -103,8 +102,9 @@ while (True):
                 ir_dc = ir_ac.averageDCEstimator(ir_ac.ir_avg_reg, ir_sample)
                 
                 ratio = (red_sample/red_dc) / (ir_sample/ir_dc)
-                spo2 = a*a*ratio + b*ratio + c
-                print("SPO2:", spo2)
+                #print(ratio)
+                spo2 = a*ratio*ratio + b*ratio + c
+                #print("SPO2:", spo2)
                 
                 for i in range(SPO2_AVERAGE_SAMPLES-1):
                     average_spo2_buffer[i] = average_spo2_buffer[i+1]
@@ -116,7 +116,7 @@ while (True):
                     
                 average_spo2 = average_spo2 / SPO2_AVERAGE_SAMPLES
                 
-                if(beatsPerMinute <= 255 and beatsPerMinute > 20):
+                if(beatsPerMinute <= 255 and beatsPerMinute > 30):
                     rates.append(beatsPerMinute) #Store this reading in the array
                     rateSpot = rateSpot +1
                     rateSpot %= RATE_SIZE #Wrap variable
@@ -134,7 +134,7 @@ while (True):
                          beatAvg = beatAvg/RATE_SIZE
                          print("Beat Average:", beatAvg)
                          #Die Temp has an inherent resolution of 0.0625°C, but be aware that the accuracy is ±1°C.
-                         temperature_C = sensor.read_temperature() + 0.85
+                         temperature_C = sensor.read_temperature() 
                          print("Temperature: ", temperature_C, "°C")
                          #print(beatAvg) #For the serial plotter
                          rates.pop(0)
@@ -150,7 +150,7 @@ while (True):
 
                          #average_spo2 = average_spo2 / SPO2_AVERAGE_SAMPLES
                     
-                         print("Blood Oxygenation: ", min(int(average_spo2*100), 100), "%")
+                         print("Blood Oxygenation: ", min(average_spo2*100, 100), "%")
                          
                     average_spo2 = 0      
                          
