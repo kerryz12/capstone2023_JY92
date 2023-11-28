@@ -22,11 +22,16 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     conn, addr = s.accept()
 
     # upon receiving a connection
+
+    # upon receiving a connection
     with conn:
         print(f"Connected by {addr}")
 
         # continuously receive data
+
+        # continuously receive data
         while True:
+            data = conn.recv(2048)
             data = conn.recv(2048)
             if not data:
                 break

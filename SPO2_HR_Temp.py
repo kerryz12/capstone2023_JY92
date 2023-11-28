@@ -3,6 +3,9 @@ from machine import SoftI2C, I2C, Pin
 import time
 from hr_algorithm import *
 
+import network
+import socket
+
 #Define parameters for the sensor and pi pico
 my_SDA_pin = 8  # I2C SDA pin number here!
 my_SCL_pin = 9  # I2C SCL pin number here!
@@ -59,6 +62,32 @@ sensor.setup_sensor()
 for i in range(SPO2_AVERAGE_SAMPLES):
     average_spo2_buffer.append(float(0))
 
+ssid = 'TinTina'
+password = 'tinanguyen'
+
+def connect():
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    wlan.connect(ssid, password)
+    while wlan.isconnected() == False:
+        print('Waiting for connection...')
+        sleep(1)
+    print(wlan.ifconfig())
+
+connect()
+
+# Create a UDP socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+host, port = '192.168.59.115', 64000
+server_address = (host, port)
+
+try:
+    sock.connect(server_address)
+    print("Connected to TCP server")
+except:
+    print("Not connected")
+
 while (True):
     # The check() method has to be continuously polled, to check if
     # there are new readings into the sensor's FIFO queue. When new
@@ -72,7 +101,7 @@ while (True):
         ir_sample = sensor.pop_ir_from_storage()
 
         
-        #print(ir_sample, ",", red_sample)
+        print(ir_sample, ",", red_sample)
         #Printing the raw LED values for debugging
         #if(ir_sample>0):
         #    print(ir_sample)
@@ -102,9 +131,8 @@ while (True):
                 ir_dc = ir_ac.averageDCEstimator(ir_ac.ir_avg_reg, ir_sample)
                 
                 ratio = (red_sample/red_dc) / (ir_sample/ir_dc)
-                #print(ratio)
-                spo2 = a*ratio*ratio + b*ratio + c
-                #print("SPO2:", spo2)
+                spo2 = a*a*ratio + b*ratio + c
+                print("SPO2:", spo2)
                 
                 for i in range(SPO2_AVERAGE_SAMPLES-1):
                     average_spo2_buffer[i] = average_spo2_buffer[i+1]
@@ -115,6 +143,7 @@ while (True):
                     average_spo2 += average_spo2_buffer[i]
                     
                 average_spo2 = average_spo2 / SPO2_AVERAGE_SAMPLES
+
                 
                 if(beatsPerMinute <= 255 and beatsPerMinute > 30):
                     rates.append(beatsPerMinute) #Store this reading in the array
