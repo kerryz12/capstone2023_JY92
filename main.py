@@ -29,7 +29,7 @@ spo2_obj = SPO2()
 heartbeat_obj = DetectHeartbeat()
 
 # set up wifi and TCP communication protocols
-host, port = '10.0.0.196', 64000
+host, port = '192.168.59.115', 64000
 server_address = (host, port)
 
 network_obj = Networking()
@@ -38,6 +38,7 @@ network_obj.createTCPSocket(server_address)
 
 # keep track of time elapsed
 start_time = time.ticks_ms()
+count = 0
 
 # main loop
 while(True):
@@ -62,5 +63,7 @@ while(True):
 
         # send the data to the TCP server
         current_time = time.ticks_ms() - start_time
-        network_obj.sendTCPPacket(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + "\n")
-        sleep(1)
+        if (count % 5 == 0):
+            network_obj.sendTCPPacket(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + "\n")
+
+        count += 1

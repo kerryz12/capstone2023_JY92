@@ -10,9 +10,9 @@ SPO2_AVERAGE_SAMPLES = 32
 class SPO2(object):
     def __init__(self):
         # SpO2 Algorithm Values
-        self.a = 1.5958422
-        self.b = -34.6596622
-        self.c = 33.1098759
+        self.a = 1
+        self.b = 1
+        self.c = -1
 
         # initialize SpO2 variables
         self.average_spo2_buffer = []
@@ -20,7 +20,7 @@ class SPO2(object):
     def calculateSPO2(self, red, red_dc, ir, ir_dc):
         # calculate the SpO2 level
         ratio = (red/red_dc) / (ir/ir_dc)
-        return self.a*self.a*ratio + self.b*ratio + self.c
+        return self.a*ratio*ratio + self.b*ratio + self.c
     
     def calculateAverageSPO2(self, spo2):
         average_spo2 = 0
