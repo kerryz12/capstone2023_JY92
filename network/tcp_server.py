@@ -6,7 +6,7 @@ from struct import unpack
 f = open('../data/output.txt', 'w')
 f.close()
 
-# Create a UDP socket
+# Create a TCP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
