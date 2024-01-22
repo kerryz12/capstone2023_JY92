@@ -24,8 +24,8 @@
 </script>
 
 <template>
-    <v-card max-width = 600>
-        <v-card-title class = "text-center"> Heart Rate and Breathing Rate</v-card-title>
+    <v-card max-width = 600 class="mt-n3 mx-3 mb-3">
+        <v-card-title class = "text-center"> Heart Rate and Breathing Rate Chart</v-card-title>
         <apexchart width="600" type="line" :options="options" :series="series"></apexchart>
     </v-card>
 </template>
