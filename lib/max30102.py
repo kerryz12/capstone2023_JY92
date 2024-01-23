@@ -184,9 +184,9 @@ class MAX30102(object):
         self.sense = SensorData()
 
     # Sensor setup method
-    def setup_sensor(self, led_mode=2, adc_range=16384, sample_rate=400,
-                     led_power=MAX30105_PULSE_AMP_MEDIUM, sample_avg=8,
-                     pulse_width=411):
+    def setup_sensor(self, led_mode=3, adc_range=16384, sample_rate=100,
+                     led_power=MAX30105_PULSE_AMP_HIGH, sample_avg=1,
+                     pulse_width=215):
         # Reset the sensor's registers from previous configurations
         self.soft_reset()
 

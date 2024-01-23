@@ -12,7 +12,6 @@ SCL_PIN = 9
 SPO2_AVERAGE_SAMPLES = 32
 
 # Create I2C object
-i2c = I2C(0, sda=Pin(SDA_PIN), scl=Pin(SCL_PIN))
 i2c = SoftI2C(sda=Pin(SDA_PIN), scl=Pin(SCL_PIN), freq=400000)
 i2c.scan()
 
@@ -23,18 +22,19 @@ sensor.setup_sensor()
 # using heartbeat library to calculate DC of signals
 ir_ac = HeartBeat()
 red_ac = HeartBeat()
+green_ac = HeartBeat()
 
 # create SPO2 and Heartrate objects
 spo2_obj = SPO2()
 heartbeat_obj = DetectHeartbeat()
 
 # set up wifi and TCP communication protocols
-host, port = '10.0.0.196', 64000
+host, port = '172.20.10.2', 64000
 server_address = (host, port)
 
 network_obj = Networking()
-network_obj.connect()
-network_obj.createTCPSocket(server_address)
+#network_obj.connect()
+#network_obj.createTCPSocket(server_address)
 
 # keep track of time elapsed
 start_time = time.ticks_ms()
@@ -47,12 +47,14 @@ while(True):
     if (sensor.available()):
         red = sensor.pop_red_from_storage()
         ir = sensor.pop_ir_from_storage()
+        green = sensor.pop_green_from_storage()
 
         # get the DC value of each LED reading
         red_dc = red_ac.averageDCEstimator(red_ac.ir_avg_reg, red)
         ir_dc = ir_ac.averageDCEstimator(ir_ac.ir_avg_reg, ir)
+        green_dc = green_ac.averageDCEstimator(green_ac.ir_avg_reg, green)
 
-        heartbeat_obj.detectHeartbeat(ir)
+        heartbeat_obj.detectHeartbeat(red)
         average_heartbeat = heartbeat_obj.getBeatAverage()
 
         spo2 = spo2_obj.calculateSPO2(red, red_dc, ir, ir_dc)
@@ -62,5 +64,5 @@ while(True):
 
         # send the data to the TCP server
         current_time = time.ticks_ms() - start_time
-        network_obj.sendTCPPacket(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + "\n")
-        sleep(1)
+        #network_obj.sendTCPPacket(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + "\n")
+        print(str(current_time) + " " + str(ir) + " " + str(red) + " " + str(green) + " " + str(average_spo2) + " " + str(temperature) + "\n")
