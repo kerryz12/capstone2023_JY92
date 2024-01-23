@@ -6,7 +6,7 @@ from struct import unpack
 f = open('../data/output.txt', 'w')
 f.close()
 
-# Create a UDP socket
+# Create a TCP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
@@ -26,10 +26,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
         # continuously receive data
         while True:
-            data = conn.recv(2048)
+            data = conn.recv(512)
             if not data:
                 break
-            conn.sendall(data)
             decoded_data = data.decode('ascii')
             print(decoded_data)
 

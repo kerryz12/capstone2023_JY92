@@ -29,7 +29,7 @@ spo2_obj = SPO2()
 heartbeat_obj = DetectHeartbeat()
 
 # set up wifi and TCP communication protocols
-host, port = '172.20.10.2', 64000
+host, port = '192.168.59.115', 64000
 server_address = (host, port)
 
 network_obj = Networking()
@@ -38,6 +38,7 @@ network_obj = Networking()
 
 # keep track of time elapsed
 start_time = time.ticks_ms()
+count = 0
 
 # main loop
 while(True):
