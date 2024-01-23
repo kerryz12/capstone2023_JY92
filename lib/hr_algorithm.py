@@ -3,7 +3,7 @@
 
 import time
 
-RATE_SIZE = 16 #Increase this for more averaging. 4 is good.
+HR_AVERAGE_SAMPLES = 16 
 
 class HeartBeat(object):
     
@@ -58,7 +58,7 @@ class HeartBeat(object):
         self.IR_Average_Estimated = self.averageDCEstimator(self.ir_avg_reg, sample)
         self.IR_AC_Signal_Current = sample - self.IR_Average_Estimated #self.lowPassFIRFilter(sample - self.IR_Average_Estimated)
 
-        print("prev: " + str(self.IR_AC_Signal_Previous) + "\ncurr: " + str(self.IR_AC_Signal_Current))
+        #print("prev: " + str(self.IR_AC_Signal_Previous) + "\ncurr: " + str(self.IR_AC_Signal_Current))
         #  Detect positive zero crossing (rising edge)
         if ((self.IR_AC_Signal_Previous < 0) and (self.IR_AC_Signal_Current >= 0)):
             self.IR_AC_Max = self.IR_AC_Signal_max
@@ -91,8 +91,8 @@ class HeartBeat(object):
 class DetectHeartbeat(object):
     def __init__(self):
         #Variables for getting a finger pulse
-        self.l_threshold = 50000
-        self.u_threshold = 60000
+        self.l_threshold = 1500
+        self.u_threshold = 2500
 
         self.lastBeat = 0
         self.beat = HeartBeat()
@@ -106,7 +106,7 @@ class DetectHeartbeat(object):
         self.end_finger_time = 0
         self.finger_on = False
             
-        self.rates = [RATE_SIZE]
+        self.average_hr_buffer = []
 
     def detectHeartbeat(self, ir):
         if (ir > self.l_threshold and ir < self.u_threshold):
@@ -128,24 +128,37 @@ class DetectHeartbeat(object):
                 print("Beats Per Minute:", self.beatsPerMinute)
                 
                 if(self.beatsPerMinute < 255 and self.beatsPerMinute > 20):
-                    self.rates.append(self.beatsPerMinute) #Store this reading in the array
-                    self.rateSpot = self.rateSpot + 1
-                    self.rateSpot %= RATE_SIZE #Wrap variable
+                    self.beatAvg = self.calculateAverageHR(self.beatsPerMinute)
 
-                    print("Calibrating..")
-                    
-                    #Take average of readings
-                    self.beatAvg = 0
-                    i = 0
-                    for x in self.rates:
-                        #print(x)
-                        self.beatAvg += x
-                        i += 1
-                        if (i==RATE_SIZE):
-                            self.beatAvg = self.beatAvg / RATE_SIZE
-                            print("Beat Average:", self.beatAvg)
-                            #print(beatAvg) #For the serial plotter
-                            self.rates.pop(0)
-                        
+                else:
+                    print("Irregularly high or low heartrate")
+                            
+    def calculateAverageHR(self, hr):
+        average_spo2 = 0
+
+        # if list containing values for average calculation is full
+        if (len(self.average_hr_buffer) == HR_AVERAGE_SAMPLES):
+
+            # rotate the list
+            for i in range(HR_AVERAGE_SAMPLES-1):
+                self.average_hr_buffer[i] = self.average_hr_buffer[i+1]
+
+            self.average_hr_buffer[HR_AVERAGE_SAMPLES-1] = hr
+
+            # calculate the average SpO2 value
+            for i in range(HR_AVERAGE_SAMPLES):
+                average_spo2 += self.average_hr_buffer[i]
+
+            return average_spo2 / HR_AVERAGE_SAMPLES
+
+        # otherwise append the samples to the list until the list is full
+        else:
+            self.average_hr_buffer.append(hr)
+
+            for i in range(len(self.average_hr_buffer)):
+                average_spo2 += self.average_hr_buffer[i]
+
+            return average_spo2 / len(self.average_hr_buffer)
+
     def getBeatAverage(self):
         return self.beatAvg

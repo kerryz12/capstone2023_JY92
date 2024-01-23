@@ -55,15 +55,15 @@ while(True):
         ir_dc = ir_ac.averageDCEstimator(ir_ac.ir_avg_reg, ir)
         green_dc = green_ac.averageDCEstimator(green_ac.ir_avg_reg, green)
 
-        heartbeat_obj.detectHeartbeat(red)
+        heartbeat_obj.detectHeartbeat(green)
         average_heartbeat = heartbeat_obj.getBeatAverage()
 
         spo2 = spo2_obj.calculateSPO2(red, red_dc, ir, ir_dc)
         average_spo2 = spo2_obj.calculateAverageSPO2(spo2)
 
-        temperature = sensor.read_temperature() + 0.85
+        temperature = sensor.read_temperature() + 8
 
         # send the data to the TCP server
         current_time = time.ticks_ms() - start_time
         #network_obj.sendTCPPacket(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + "\n")
-        print(str(current_time) + " " + str(ir) + " " + str(red) + " " + str(green) + " " + str(average_spo2) + " " + str(temperature) + "\n")
+        print(str(current_time) + " " + str(ir) + " " + str(red) + " " + str(green) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + "\n")

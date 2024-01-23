@@ -20,7 +20,9 @@ class SPO2(object):
     def calculateSPO2(self, red, red_dc, ir, ir_dc):
         # calculate the SpO2 level
         ratio = (red/red_dc) / (ir/ir_dc)
-        return self.a*ratio*ratio + self.b*ratio + self.c
+
+        return 115 - 17*ratio
+        #return self.a*ratio*ratio + self.b*ratio + self.c
     
     def calculateAverageSPO2(self, spo2):
         average_spo2 = 0
