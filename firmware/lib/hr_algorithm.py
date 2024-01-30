@@ -113,25 +113,25 @@ class DetectHeartbeat(object):
             if (self.finger_on == False):
                 self.start_finger_time = time.ticks_ms()
                 self.finger_on = True
-                print("Loading...")
+                #print("Loading...")
             
             #We sensed a beat!
             if(self.beat.checkForBeat(ir)):
-                print("Beat\n")
+                #print("Beat\n")
                 self.delta = time.ticks_ms() - self.lastBeat
                 self.lastBeat = time.ticks_ms()
 
                 self.beatsPerMinute = 60 / (self.delta / 1000.0)
                 
                 self.prev_beatAvg = self.beatAvg
-                print(self.delta)
-                print("Beats Per Minute:", self.beatsPerMinute)
+                #print(self.delta)
+                #print("Beats Per Minute:", self.beatsPerMinute)
                 
                 if(self.beatsPerMinute < 255 and self.beatsPerMinute > 20):
                     self.beatAvg = self.calculateAverageHR(self.beatsPerMinute)
 
-                else:
-                    print("Irregularly high or low heartrate")
+                #else:
+                    #print("Irregularly high or low heartrate")
                             
     def calculateAverageHR(self, hr):
         average_spo2 = 0

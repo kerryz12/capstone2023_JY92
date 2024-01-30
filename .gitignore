@@ -1,4 +1,4 @@
-.vscode/*
+.vscode/
 .micropico
 data/output.txt
-app/node_modules/*
+node_modules/

@@ -5,8 +5,26 @@ export default {
     data() {
         return {
             HRsrc: HR,
-            heart: 190,
+            heartrate: 500,
         };
+    },
+    methods: {
+        getMessage() {
+            const path = 'http://localhost:5173/';
+            axios.get(path)
+            .then((res) => {
+                this.heartrate = res.data[1];
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        },
+    },
+    created: async function() {
+        console.log("hi");
+        const response = await fetch("http://localhost:5173/");
+        const gObject = await gResponse.json();
+        this.heartrate = gObject.heartrate;
     }
 };
 
@@ -24,7 +42,7 @@ export default {
                     <v-card-title class="pl-0"> Current Heart Rate: </v-card-title>
                 </v-row>
                 <v-row>
-                    <v-card-title class="mx-auto mt-n6">{{ heart }}</v-card-title>
+                    <v-card-title class="mx-auto mt-n6">{{ heartrate }}</v-card-title>
                 </v-row>
             </v-col>
         </v-row> 

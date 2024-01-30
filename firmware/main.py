@@ -66,4 +66,4 @@ while(True):
         # send the data to the TCP server
         current_time = time.ticks_ms() - start_time
         #network_obj.sendTCPPacket(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + "\n")
-        print(str(current_time) + " " + str(ir) + " " + str(red) + " " + str(green) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + "\n")
+        #print(str(current_time) + " " + str(ir) + " " + str(red) + " " + str(green) + " " + str(average_heartbeat) + " " + str(average_spo2) + "% " + str(temperature))
