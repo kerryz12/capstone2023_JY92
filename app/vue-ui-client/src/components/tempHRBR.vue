@@ -1,8 +1,8 @@
 <script>
-  import axios from 'axios';
+import axios from 'axios';
 import { setTransitionHooks } from 'vue';
 
-  export default {
+export default {
     name: 'MainDash',
     data() {
         return {
@@ -16,46 +16,46 @@ import { setTransitionHooks } from 'vue';
                 }
             },
             series: [{
-                    name: 'series-1',
-                    data: []
-                }]
+                name: 'series-1',
+                data: []
+            }]
         };
     },
     methods: {
         getTime() {
             const path = 'http://127.0.0.1:5000/time';
             axios.get(path)
-            .then((res) => {
-                if (this.options.xaxis.categories.length >= 16) {
-                    this.options.xaxis.categories.shift();
-                    this.options.xaxis.categories.push(Math.round(res.data))
-                }
-                else {
-                    this.options.xaxis.categories.push(Math.round(res.data))
-                }
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+                .then((res) => {
+                    if (this.options.xaxis.categories.length >= 16) {
+                        this.options.xaxis.categories.shift();
+                        this.options.xaxis.categories.push(Math.round(res.data))
+                    }
+                    else {
+                        this.options.xaxis.categories.push(Math.round(res.data))
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         },
         getHR() {
             const path = 'http://127.0.0.1:5000/heartrate';
             axios.get(path)
-            .then((res) => {
-                if (this.series[0].data.length >= 16) {
-                    this.series[0].data.shift();
-                    this.series[0].data.push(res.data)
-                }
-                else {
-                    this.series[0].data.push(res.data)
-                }
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+                .then((res) => {
+                    if (this.series[0].data.length >= 16) {
+                        this.series[0].data.shift();
+                        this.series[0].data.push(res.data)
+                    }
+                    else {
+                        this.series[0].data.push(res.data)
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         },
     },
-    created: async function() {
+    created: async function () {
         this.getHR();
         this.getTime();
 
@@ -68,8 +68,8 @@ import { setTransitionHooks } from 'vue';
 </script>
 
 <template>
-    <v-card max-width = 600 class="mt-n3 mx-3 mb-3">
-        <v-card-title class = "text-center"> Heart Rate and Breathing Rate Chart</v-card-title>
+    <v-card max-width=600 class="mt-n3 mx-3 mb-3">
+        <v-card-title class="text-center"> Heart Rate and Breathing Rate Chart</v-card-title>
         <apexchart width="600" type="line" :options="options" :series="series"></apexchart>
     </v-card>
 </template>

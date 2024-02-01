@@ -41,7 +41,7 @@ def getData():
     decoded_data = data.decode('ascii')
     '''
 
-    return [time.time() - start_time, randint(20,100), randint(90,100), randint(20,100)]
+    return [time.time() - start_time, randint(40,120), randint(90,100), randint(30,40)]
     return decoded_data  
 
 @app.route('/time', methods=['GET'])
