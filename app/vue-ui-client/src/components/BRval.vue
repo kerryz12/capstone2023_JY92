@@ -1,6 +1,6 @@
 <script>
 import BR from '@/assets/images/BR.png'
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
     data() {
@@ -11,7 +11,7 @@ export default {
     },
     methods: {
         getMessage() {
-            const path = 'http://localhost:5001/';
+            const path = 'http://localhost:5000/heartrate';
             axios.get(path)
             .then((res) => {
                 this.breath = res.data[3];

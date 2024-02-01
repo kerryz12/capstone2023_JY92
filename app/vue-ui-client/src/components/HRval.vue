@@ -1,5 +1,6 @@
 <script>
 import HR from '@/assets/images/HR.png'
+import axios from 'axios'
 
 export default {
     data() {
@@ -9,11 +10,11 @@ export default {
         };
     },
     methods: {
-        getMessage() {
-            const path = 'http://localhost:5173/';
+        getHR() {
+            const path = 'http://127.0.0.1:5000/heartrate';
             axios.get(path)
             .then((res) => {
-                this.heartrate = res.data[1];
+                this.heartrate = res.data;
             })
             .catch((error) => {
                 console.error(error);
@@ -21,10 +22,11 @@ export default {
         },
     },
     created: async function() {
-        console.log("hi");
-        const response = await fetch("http://localhost:5173/");
-        const gObject = await gResponse.json();
-        this.heartrate = gObject.heartrate;
+        this.getHR();
+
+        setInterval(function () {
+            this.getHR();
+        }.bind(this), 500); 
     }
 };
 

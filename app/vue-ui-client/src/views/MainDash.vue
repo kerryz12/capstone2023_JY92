@@ -14,21 +14,6 @@
         return {
         };
     },
-    methods: {
-        getMessage() {
-            const path = 'http://localhost:5001/';
-            axios.get(path)
-                .then((res) => {
-                this.msg = res.data;
-            })
-                .catch((error) => {
-                console.error(error);
-            });
-        },
-    },
-    created() {
-        this.getMessage();
-    },
     components: { SpO2chart, tempHRBR, Temperaturechart, BodyPosition, Location, HRval, BRval }
 };
   </script>
