@@ -13,10 +13,10 @@ export default {
 
 
 <template>
-    <v-card color ="orange" max-width = 500 class="ml-n4 mr-4 mt-4 px-1 pt-1">
+    <v-card max-width = 500 class="ml-n4 mr-4 mt-4 px-1 pt-1">
         <v-row>
             <v-col no-gutters>
-                <v-img width = 50 :src = "BRsrc" class = "ma-auto"></v-img>
+                <v-img width = 50 :src = "BRsrc" class = "ma-auto "></v-img>
             </v-col>
             <v-col no-gutters>
                 <v-row>

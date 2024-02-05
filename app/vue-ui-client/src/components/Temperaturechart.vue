@@ -63,7 +63,7 @@ export default {
 </script>
 
 <template>
-    <v-card color ="purple" width = 250 class="mt-n3">
+    <v-card width = 250 class="mt-n3">
         <v-card-title class ="text-center"> Temperature </v-card-title>
         <apexchart type="radialBar" :options="chartOptions" :series="series"></apexchart>
     </v-card>

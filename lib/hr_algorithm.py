@@ -8,7 +8,6 @@ RATE_SIZE = 16 #Increase this for more averaging. 4 is good.
 class HeartBeat(object):
     
     def __init__(self):
-        print("this is the heartbeat class")
         self.IR_AC_Max = 20
         self.IR_AC_Min = -20
 

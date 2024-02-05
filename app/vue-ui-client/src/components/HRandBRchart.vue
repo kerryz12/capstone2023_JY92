@@ -1,12 +1,8 @@
 
 <script>
-new Vue({
-    el: '#app',
-    components: {
-      apexchart: VueApexCharts,
-    },
-    data: {
-      
+export default{
+    data() {
+      return{
       series: [{
         data: data.slice()
       }],
@@ -53,9 +49,7 @@ new Vue({
           show: false
         },
       },
-      
-      
-    },
+
     mounted: function () {
       var me = this
       window.setInterval(function () {
@@ -77,12 +71,15 @@ new Vue({
           data
         }], false, true)
       }, 60000)
-    },
-  })
+    }
+  }
+  }
+}
+
 </script>
 
 <template>
 <div id="chart">
-    <apexchart type="line" height="350" ref="chart" :options="chartOptions" :series="series"></apexchart>
+    <apexchart type="line" width="600" ref="chart" :options="chartOptions" :series="series"></apexchart>
 </div>
 </template>
