@@ -6,7 +6,7 @@ export default {
     data() {
         return {
             HRsrc: HR,
-            heartrate: 500,
+            heartrate: 60,
         };
     },
     methods: {

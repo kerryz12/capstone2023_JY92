@@ -17,15 +17,5 @@ const router = createRouter({
     },
   ]
 })
-/*
-router.beforeEach(function (to, from, next) {
-  if ((to.path !== '/login' && to.path !== 'login')) {
-    next({ path: '/login' })
-  } else if ((to.path === '/login' || to.path === 'login')) {
-    next({ path: '/' })
-  } else {
-   next()
-  }
-})
-*/
+
 export default router

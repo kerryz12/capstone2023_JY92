@@ -80,9 +80,10 @@ import router from "@/router";
       </v-row>
     </v-container>
     </v-row>
-      <v-container>
-          <div class = "text-h8 px-3 mt-n4 text-center" v-if="pos_val != 0 "> 
-              For login assistance, please visit your organization's IT department. </div> 
+      <v-container>  
+        <div class = "text-caption px-3 mt-n2 text-center"> Images from Freepik </div> 
+        <div class = "text-h8 px-3 mt-2 text-center"> 
+          For login assistance, please visit your organization's IT department. </div> 
       </v-container>
     </v-sheet>
   </v-flex>

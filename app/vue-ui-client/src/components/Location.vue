@@ -1,5 +1,11 @@
 <script>
-
+    export default {
+        data() {
+            return {
+                Room_val: 0,
+            }
+        },
+    }
 </script>
 
 

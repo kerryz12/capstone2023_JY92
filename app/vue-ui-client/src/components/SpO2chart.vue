@@ -26,7 +26,7 @@ export default {
                   }
                 },
                         hollow: {
-                            size: '0%',
+                            size: '70%',
                         }
                     },
                 },
