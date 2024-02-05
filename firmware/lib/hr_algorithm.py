@@ -8,7 +8,6 @@ HR_AVERAGE_SAMPLES = 16
 class HeartBeat(object):
     
     def __init__(self):
-        print("this is the heartbeat class")
         self.IR_AC_Max = 20
         self.IR_AC_Min = -20
 

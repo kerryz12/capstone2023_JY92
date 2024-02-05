@@ -2,11 +2,14 @@
   import axios from 'axios';
   import SpO2chart from '@/components/SpO2chart.vue';
   import tempHRBR from '@/components/tempHRBR.vue';
+  import HRandBRchart from '@/components/HRandBRchart.vue';
   import Temperaturechart from '@/components/Temperaturechart.vue';
   import BodyPosition from '@/components/BodyPosition.vue';
+  import BodyDynamics from '@/components/BodyDynamics.vue';
   import Location from '@/components/Location.vue';
   import HRval from '@/components/HRval.vue';
   import BRval from '@/components/BRval.vue';
+
   
   export default {
     name: 'MainDash',
@@ -14,7 +17,23 @@
         return {
         };
     },
-    components: { SpO2chart, tempHRBR, Temperaturechart, BodyPosition, Location, HRval, BRval }
+    methods: {
+        getMessage() {
+            const path = 'http://localhost:5001/';
+            axios.get(path)
+                .then((res) => {
+                this.msg = res.data;
+            })
+                .catch((error) => {
+                console.error(error);
+            });
+        },
+    },
+    created() {
+        this.getMessage();
+    },
+    components: { SpO2chart, tempHRBR, HRandBRchart, Temperaturechart, 
+      BodyPosition, Location, HRval, BRval, BodyDynamics }
 };
   </script>
 
@@ -25,7 +44,7 @@
         <v-btn style="float: right" > Reset Device</v-btn>
       </v-card-title>
     </v-card>
-      <v-sheet color = "yellow" rounded class="align-center justify-center">
+      <v-sheet color = "blue-lighten-5" rounded class="align-center justify-center">
         <v-row no-gutters>
           <v-col no-gutters>
             <v-container class="ml-n2">
@@ -61,7 +80,14 @@
                 <Temperaturechart></Temperaturechart>
               </v-container>
             </v-row>
+
+            <v-row>
+              <v-container>
+                <Location></Location>
+              </v-container>
+            </v-row>
           </v-container>
+          
           </v-col>
        
           <v-col no-gutters>
@@ -71,10 +97,14 @@
                 <BodyPosition></BodyPosition>
               </v-container>
             </v-row>
+            <v-row>
+              <v-container >
+                <BodyDynamics></BodyDynamics>
+              </v-container>
+            </v-row>
           </v-container>
           </v-col>
           
-
         </v-row>
       </v-sheet>
   </v-container>
