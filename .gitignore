@@ -1,3 +1,5 @@
-.vscode/*
+.vscode/
 .micropico
 data/output.txt
+node_modules/
+env/

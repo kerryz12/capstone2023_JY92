@@ -1,15 +1,17 @@
 <script>
+import axios from 'axios'
+
 export default {
-        data() {
-            return {
-          series: [70],
-          chartOptions: {
-            chart: {
-              height: 300,
-              type: 'radialBar',
-            },
-            plotOptions: {
-              radialBar: {
+    data() {
+        return {
+            series: [0],
+            chartOptions: {
+                chart: {
+                    height: 300,
+                    type: 'radialBar',
+                },
+                plotOptions: {
+                    radialBar: {
                 track: {
                   background: "#e7e7e7",
                   strokeWidth: '97%',
@@ -23,16 +25,36 @@ export default {
                     blur: 2
                   }
                 },
-                hollow: {
-                  size: '70%',
-                }
-              },
+                        hollow: {
+                            size: '0%',
+                        }
+                    },
+                },
+                labels: ['SpO2 Level'],
             },
-            labels: ['SpO2 Level'],
-          },
         }
-        }, 
-      }
+    },
+    methods: {
+        getSPO2() {
+            const path = 'http://127.0.0.1:5000/spo2';
+            axios.get(path)
+                .then((res) => {
+                    this.series[0] = res.data;
+                    this.chartOptions.plotOptions.radialBar.hollow.size = res.data;
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
+    },
+    created: async function () {
+        this.getSPO2();
+
+        setInterval(function () {
+            this.getSPO2();
+        }.bind(this), 500);
+    }
+}
 </script>
 
 <template>

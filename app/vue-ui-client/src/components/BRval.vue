@@ -1,13 +1,26 @@
 <script>
 import BR from '@/assets/images/BR.png'
+import axios from 'axios'
 
 export default {
     data() {
         return {
             BRsrc: BR,
-            breath: 99
+            breath: 0
         };
-    }
+    },
+    methods: {
+        getMessage() {
+            const path = 'http://localhost:5000/heartrate';
+            axios.get(path)
+                .then((res) => {
+                    this.breath = res.data[3];
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
+    },
 };
 </script>
 
@@ -26,6 +39,6 @@ export default {
                     <v-card-title class="mx-auto mt-n6">{{ breath }}</v-card-title>
                 </v-row>
             </v-col>
-        </v-row> 
+        </v-row>
     </v-card>
 </template>

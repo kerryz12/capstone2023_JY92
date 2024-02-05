@@ -1,7 +1,8 @@
 <script>
-  import axios from 'axios';
+import axios from 'axios';
+import { setTransitionHooks } from 'vue';
 
-  export default {
+export default {
     name: 'MainDash',
     data() {
         return {
@@ -11,21 +12,64 @@
                     id: 'vuechart-example'
                 },
                 xaxis: {
-                    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+                    categories: []
                 }
             },
             series: [{
-                    name: 'series-1',
-                    data: [30, 40, 45, 50, 49, 60, 70, 91]
-                }]
+                name: 'series-1',
+                data: []
+            }]
         };
     },
+    methods: {
+        getTime() {
+            const path = 'http://127.0.0.1:5000/time';
+            axios.get(path)
+                .then((res) => {
+                    if (this.options.xaxis.categories.length >= 16) {
+                        this.options.xaxis.categories.shift();
+                        this.options.xaxis.categories.push(Math.round(res.data))
+                    }
+                    else {
+                        this.options.xaxis.categories.push(Math.round(res.data))
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
+        getHR() {
+            const path = 'http://127.0.0.1:5000/heartrate';
+            axios.get(path)
+                .then((res) => {
+                    if (this.series[0].data.length >= 16) {
+                        this.series[0].data.shift();
+                        this.series[0].data.push(res.data)
+                    }
+                    else {
+                        this.series[0].data.push(res.data)
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
+    },
+    created: async function () {
+        this.getHR();
+        this.getTime();
+
+        setInterval(function () {
+            this.getHR();
+            this.getTime();
+        }.bind(this), 500);
+    }
 }
 </script>
 
 <template>
-    <v-card max-width = 600 class="mt-n3 mx-3 mb-3">
-        <v-card-title class = "text-center"> Heart Rate and Breathing Rate Chart</v-card-title>
+    <v-card max-width=600 class="mt-n3 mx-3 mb-3">
+        <v-card-title class="text-center"> Heart Rate and Breathing Rate Chart</v-card-title>
         <apexchart width="600" type="line" :options="options" :series="series"></apexchart>
     </v-card>
 </template>
