@@ -34,27 +34,24 @@ server_address = (host, port)
 
 print(f'Starting TCP server on {host} port {port}')
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((host, port))
-    s.listen()
-    conn, addr = s.accept()
-
-    # upon receiving a connection
-    with conn:
-        print(f"Connected by {addr}")
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((host, port))
+s.listen()
+conn, addr = s.accept()
 
 @scheduler.task('interval', id='poll_data', seconds=0.5, misfire_grace_time=2)
 def poll_data():
-    global decoded_data
+    global split_data
 
     data = conn.recv(512)
     if not data:
         return
     decoded_data = data.decode('ascii')
+    split_data = decoded_data.split()
 
 def getData():
     #return [time.time() - start_time, randint(40,120), randint(90,100), randint(30,40)]
-    return decoded_data  
+    return split_data  
 
 @app.route('/time', methods=['GET'])
 def getTime():
@@ -73,4 +70,4 @@ def temperature():
     return str(getData()[3])
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(port=5000)
