@@ -4,8 +4,8 @@ from time import sleep
 
 class Networking(object):
     def __init__(self):
-        self.ssid = 'TinTina'
-        self.password = 'tinanguyen'
+        self.ssid = 'Kerry’s iPhone'
+        self.password = 'a1cwy4vqty1vy'
 
     def connect(self):
         self.wlan = network.WLAN(network.STA_IF)
