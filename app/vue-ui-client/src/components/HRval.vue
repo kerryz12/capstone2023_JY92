@@ -26,7 +26,7 @@ export default {
 
         setInterval(function () {
             this.getHR();
-        }.bind(this), 500); 
+        }.bind(this), 1000); 
     }
 };
 
