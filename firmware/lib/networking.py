@@ -1,11 +1,15 @@
 import network
 import socket
 from time import sleep
+from machine import Pin, Timer
+
 
 class Networking(object):
     def __init__(self):
-        self.ssid = 'Kerry’s iPhone'
-        self.password = 'a1cwy4vqty1vy'
+        self.ssid = 'TinTina'
+        self.password = 'tinanguyen'
+        self.led = Pin("LED", Pin.OUT)
+
 
     def connect(self):
         self.wlan = network.WLAN(network.STA_IF)
@@ -15,6 +19,9 @@ class Networking(object):
             print('Waiting for connection...')
             sleep(1)
         print(self.wlan.ifconfig())
+        self.led.toggle()
+        sleep(1)
+        self.led.toggle()
 
     def createUDPSocket(self):
         # Create a UDP socket
@@ -26,9 +33,14 @@ class Networking(object):
 
         try:
             self.sock.connect(server_address)
+            self.led.toggle()
+            self.led.toggle()
+            self.led.toggle()
             print("Connected to TCP server")
         except:
             print("Not connected")
 
     def sendTCPPacket(self, data):
         self.sock.send(data.encode('ascii'))
+        
+        

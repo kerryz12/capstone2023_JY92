@@ -3,7 +3,7 @@ import struct
 import bluetooth
 import time
 
-from lib.ble_advertising import decode_services, decode_name
+from ble_advertising import decode_services, decode_name
 from lib.networking import *
 
 # set up wifi and TCP communication protocols
@@ -14,7 +14,6 @@ network_obj = Networking()
 network_obj.connect()
 network_obj.createTCPSocket(server_address)
 
-#states for bluetooth
 _IRQ_CENTRAL_CONNECT = const(1)
 _IRQ_CENTRAL_DISCONNECT = const(2)
 _IRQ_GATTS_WRITE = const(3)
@@ -45,7 +44,6 @@ _UART_SERVICE_UUID = bluetooth.UUID("6E400001-B5A3-F393-E0A9-E50E24DCCA9E")
 _UART_RX_CHAR_UUID = bluetooth.UUID("6E400002-B5A3-F393-E0A9-E50E24DCCA9E")
 _UART_TX_CHAR_UUID = bluetooth.UUID("6E400003-B5A3-F393-E0A9-E50E24DCCA9E")
 
-#Bluetooth sender library
 class BLESimpleCentral:
     def __init__(self, ble):
         self._ble = ble
@@ -74,15 +72,15 @@ class BLESimpleCentral:
                 self._addr_type = addr_type
                 self._addr = bytes(addr)
                 self._name = decode_name(adv_data) or "?"
+                self._rssi = rssi
                 self._ble.gap_scan(None)
-                print("RSSI:", rssi)  # 打印 RSSI 值
         elif event == _IRQ_SCAN_DONE:
             if self._scan_callback:
                 if self._addr:
-                    self._scan_callback(self._addr_type, self._addr, self._name)
+                    self._scan_callback(self._addr_type, self._addr, self._name, self._rssi)
                     self._scan_callback = None
                 else:
-                    self._scan_callback(None, None, None)
+                    self._scan_callback(None, None, None, None)
         elif event == _IRQ_PERIPHERAL_CONNECT:
             conn_handle, addr_type, addr = data
             if addr_type == self._addr_type and addr == self._addr:
@@ -143,13 +141,11 @@ class BLESimpleCentral:
         if self._addr_type is None or self._addr is None:
             return False
         self._ble.gap_connect(self._addr_type, self._addr)
-        print("connected")
         return True
 
     def disconnect(self):
-        print("disconnect")
         if self._conn_handle is None:
-            reture
+            return
         self._ble.gap_disconnect(self._conn_handle)
         self._reset()
 
@@ -161,41 +157,25 @@ class BLESimpleCentral:
     def on_notify(self, callback):
         self._notify_callback = callback
 
-def scanner1():
-    
+def on_scan(addr_type, addr, name, rssi):
+    if addr_type is not None:
+        print("Found Room:", name, ",Blutooth Signal Strength (dB)", rssi)
+        network_obj.sendTCPPacket("RSSI: " + str(rssi))
+        #Need to onvert rssi to distance
+        #Distance = 10^((Measured Power - Instant RSSI)/(10*N))
+        #Measured Power: rssi at a distance of 1m (need to measure), normally N=2
+        #or find a rssi_threshold
+    else:
+        print("Nothing Found")
 
-    def on_scan(addr_type, addr, name):
-        if addr_type is not None:
-            print("Found peripheral:", addr_type, addr, name)
-            central.connect()
-            if central.is_connected():
-                print("connected")  
-                central.on_notify(on_rx)
-                central.disconnect()
-        else:
-            nonlocal not_found
-            not_found = True
-            print("No peripheral found.")
-            
-    def on_rx(v):
-        print("RX", str(v, 'utf-8'))
-        network_obj.sendTCPPacket("RX" + str(v, 'utf-8'))
+def demo():
+    ble = bluetooth.BLE()
+    central = BLESimpleCentral(ble)
+    not_found = False
 
     while True:
-        ble = bluetooth.BLE()
-        central = BLESimpleCentral(ble)
-        not_found = False
-        fconnect_flag = 0
+        central.scan(on_scan)
+        time.sleep(2)
         
-        central.scan(callback=on_scan)
-
-        with_response = False
-            
-        #print("Disconnected")
-        #network_obj.sendTCPPacket("Disconnected")
-        #time.sleep_ms(400 if with_response else 30)
-
 if __name__ == "__main__":
-    scanner1()
-
-
+    demo()
