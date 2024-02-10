@@ -115,7 +115,7 @@ def temperature():
 
 @app.route('/position', methods=['GET'])
 def position():
-    return split_data_imu[1]
+    return str(split_data_imu[1])
 
 if __name__ == '__main__':
     app.run(port=5000)

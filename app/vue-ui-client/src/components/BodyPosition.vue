@@ -15,7 +15,8 @@ export default {
             NoDatasrc: NoData,
             position: ["none", "lying", "sitting", "standing"],
             time: 0,
-            pos_val: 2
+            pos_val: 2,
+            last_pos: 2
         };
     },
     methods: {
@@ -28,32 +29,24 @@ export default {
             .catch((error) => {
                 console.error(error);
             });
-        },
-        countTime() {
-            if (last_pos != this.pos_val) {
+            if (this.last_pos != this.pos_val) {
                 this.time = 0;
             }
             else {
                 this.time += 1;
             }
-            last_pos = this.pos_val;
-        }
+            this.last_pos = this.pos_val;
+        },
     },
     created: async function() {
         this.getPosition();
-        this.countTime();
 
         setInterval(function () {
-            this.countTime();
-        }.bind(this), 1000); 
-
-        setInterval(function () {
-            this.getHR();
+            this.getPosition();
         }.bind(this), 1000); 
     }
 };
 </script>
-
 
 <template>
     <v-card width = 225 height="300" class = "justify-center align-center">
