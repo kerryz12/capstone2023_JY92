@@ -2,7 +2,7 @@ import bluetooth
 import random
 import struct
 import time
-from lib.ble_advertising import advertising_payload
+from ble_advertising import advertising_payload
 
 from micropython import const
 
@@ -31,7 +31,7 @@ _UART_SERVICE = (
 
 
 class BLESimplePeripheral:
-    def __init__(self, ble, name="mpy-uart"):
+    def __init__(self, ble, name="Room 1"):
         self._ble = ble
         self._ble.active(True)
         self._ble.irq(self._irq)
@@ -74,7 +74,7 @@ class BLESimplePeripheral:
         self._write_callback = callback
 
 
-def transmit():
+def demo():
     ble = bluetooth.BLE()
     p = BLESimplePeripheral(ble)
 
@@ -83,16 +83,17 @@ def transmit():
 
     p.on_write(on_rx)
 
+    i = 0
     while True:
         if p.is_connected():
             # Short burst of queued notifications.
             #for _ in range(3):
                 data = "1"
                 print("TX", data)
-                #Send the room number
                 p.send(data)
+                #i += 1
         time.sleep_ms(1500)
 
 
 if __name__ == "__main__":
-    transmit()
+    demo()

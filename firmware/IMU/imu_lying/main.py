@@ -8,7 +8,7 @@ from networking import *
 uart = machine.UART(0, baudrate=9600, tx=machine.Pin(12), rx=machine.Pin(13))
 
 # set up wifi and TCP communication protocols
-host, port = '206.87.216.92', 64000
+host, port = '192.168.159.40', 64000
 server_address = (host, port)
 
 network_obj = Networking()
