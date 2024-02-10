@@ -2,6 +2,11 @@ import machine
 import utime
 from lib.networking import *
 
+POS_NONE = 0
+POS_LYING = 1
+POS_SITTING = 2
+POS_STANDING = 3
+
 # UART configuration for Pico W
 # This part of the code initializes the Raspberry
 # Pi Pico W's UART0 interface, sets the baud rate to 9600, and specifies the UART's TX (transmit) and RX (receive) pins as GPIO 12 and GPIO 13, respectively.
@@ -90,7 +95,7 @@ def DueData(inputdata):  # New core procedures, read the data partition, each re
                 if data == (CheckSum & 0xff):
                     Angle = get_angle(AngleData)
                     result = acc+gyro+Angle
-                    network_obj.sendTCPPacket("%10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f\n" % result)
+                    #network_obj.sendTCPPacket("%10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f\n" % result)
                     print(
                         "acc:%10.3f %10.3f %10.3f \ngyro:%10.3f %10.3f %10.3f \nangle:%10.3f %10.3f %10.3f" % result)
                 CheckSum = 0
@@ -170,19 +175,19 @@ def main():
                 
                 # Check the first condition
                 if -10 <= angle_x <= 30 and -40 <= angle_y <= 15:
-                    network_obj.sendTCPPacket("\nSitting")
+                    network_obj.sendTCPPacket("1 " + str(POS_SITTING))
                     print("Sitting")
                 # Check the sitting condition if the patient crossing legs   
                 if -5 <= angle_x <= 40 and 0 <= angle_y <= 45:
-                    network_obj.sendTCPPacket("\nSitting")
+                    network_obj.sendTCPPacket("1 " + str(POS_SITTING))
                     print("Sitting")
                 # Check the sitting condition if the patient spreading legs   
                 if 5 <= angle_x <= 20 and -50 <= angle_y <= -10:
-                    network_obj.sendTCPPacket("\nSitting")
+                    network_obj.sendTCPPacket("1 " + str(POS_SITTING))
                     print("Sitting")
                 # Check the second condition
                 elif -190 <= angle_x <= -110 :
-                    network_obj.sendTCPPacket("\nStanding")
+                    network_obj.sendTCPPacket("1 " + str(POS_STANDING))
                     print("standing")
         
         utime.sleep_ms(50)  # Delay to prevent reading too quickly

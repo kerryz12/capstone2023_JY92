@@ -6,6 +6,10 @@ import time
 from random import randint
 import threading
 
+MAIN_PICO = 0
+IMU_PICO = 1
+BLE_PICO = 2
+
 # set configuration values
 class Config:
     SCHEDULER_API_ENABLED = True
@@ -28,6 +32,10 @@ start_time = time.time()
 
 #Routing of functions when a connection is established
 def handle_client(conn, addr):
+    global split_data_main
+    global split_data_imu
+    global split_data_ble
+    
     print(f"[NEW CONNECTION] {addr} connected.")
 
     connected = True
@@ -36,7 +44,14 @@ def handle_client(conn, addr):
         if not data:
             return
         decoded_data = data.decode('ascii')
-        print({addr}, decoded_data)
+        
+        if (decoded_data.split()[0] == MAIN_PICO):
+            split_data_main = decoded_data.split()
+        elif (decoded_data.split()[0] == IMU_PICO):
+            split_data_imu = decoded_data.split()
+        elif (decoded_data.split()[0] == BLE_PICO):
+            split_data_ble = decoded_data.split()    
+               
     conn.close()
 
 # Create a TCP socket
@@ -56,13 +71,14 @@ s.listen()
 print(f"[LISTENING] Server is listening on {host}:{port}")
 
 #Create threads when there is a new connection
-while True:
+@scheduler.task('interval', id='poll_tcp', seconds=0.5, misfire_grace_time=2)
+def poll_tcp():
     conn, addr = s.accept()
     thread = threading.Thread(target=handle_client, args=(conn, addr))
     thread.start()
     print(f"[ACTIVE CONNECTIONS] {threading.activeCount() - 1}")
 
-
+'''
 @scheduler.task('interval', id='poll_data', seconds=0.5, misfire_grace_time=2)
 def poll_data():
     global split_data
@@ -72,12 +88,15 @@ def poll_data():
         return
     decoded_data = data.decode('ascii')
     split_data = decoded_data.split()
+'''
+
+split_data_imu = [1, 1]
 
 def getData():
-    #return [time.time() - start_time, randint(40,120), randint(90,100), randint(30,40)]
-    return split_data  
+    return [time.time() - start_time, randint(40,120), randint(90,100), randint(30,40)]
+    return split_data_main
 
-#APP ROUTES
+# APP ROUTES
 @app.route('/time', methods=['GET'])
 def getTime():
     return str(getData()[0])
@@ -94,7 +113,9 @@ def spo2():
 def temperature():
     return str(getData()[3])
 
-
+@app.route('/position', methods=['GET'])
+def position():
+    return split_data_imu[1]
 
 if __name__ == '__main__':
     app.run(port=5000)

@@ -2,6 +2,11 @@ import machine
 import utime
 from networking import *
 
+POS_NONE = 0
+POS_LYING = 1
+POS_SITTING = 2
+POS_STANDING = 3
+
 # UART configuration for Pico W
 # This part of the code initializes the Raspberry
 # Pi Pico W's UART0 interface, sets the baud rate to 9600, and specifies the UART's TX (transmit) and RX (receive) pins as GPIO 12 and GPIO 13, respectively.
@@ -89,7 +94,7 @@ def DueData(inputdata):  # New core procedures, read the data partition, each re
                 if data == (CheckSum & 0xff):
                     Angle = get_angle(AngleData)
                     result = acc+gyro+Angle
-                    network_obj.sendTCPPacket("acc:%10.3f %10.3f %10.3f \ngyro:%10.3f %10.3f %10.3f \nangle:%10.3f %10.3f %10.3f" % result)
+                    #network_obj.sendTCPPacket("acc:%10.3f %10.3f %10.3f \ngyro:%10.3f %10.3f %10.3f \nangle:%10.3f %10.3f %10.3f" % result)
                     print(
                         "acc:%10.3f %10.3f %10.3f \ngyro:%10.3f %10.3f %10.3f \nangle:%10.3f %10.3f %10.3f" % result)
                 CheckSum = 0
@@ -169,16 +174,16 @@ def main():
                 
                 # Check the first condition
                 if 60 <= angle_y <= 90 :
-                    network_obj.sendTCPPacket("\nLying")
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING))
                     print("lying")
                 elif 60 <= angle_x <= 110 and angle_y < 60:
-                    network_obj.sendTCPPacket("\nLying")
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING))
                     print("lying")
                 elif -180 <= angle_x <= -60 and angle_y < 60:
-                    network_obj.sendTCPPacket("\nLying")
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING))
                     print("lying")
                 else:
-                    network_obj.sendTCPPacket("\nNot Lying")
+                    network_obj.sendTCPPacket("1 " + str(POS_NONE))
                     print("not lying")
 
         
