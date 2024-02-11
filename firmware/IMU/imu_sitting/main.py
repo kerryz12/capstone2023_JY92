@@ -13,7 +13,7 @@ POS_STANDING = 3
 uart = machine.UART(0, baudrate=9600, tx=machine.Pin(12), rx=machine.Pin(13))
 
 # set up wifi and TCP communication protocols
-host, port = '192.168.159.18', 64000
+host, port = '192.168.159.115', 64000
 server_address = (host, port)
 
 network_obj = Networking()

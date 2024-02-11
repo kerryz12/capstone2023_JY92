@@ -6,9 +6,9 @@ import time
 from random import randint
 import threading
 
-MAIN_PICO = 0
-IMU_PICO = 1
-BLE_PICO = 2
+MAIN_PICO = "0"
+IMU_PICO = "1"
+BLE_PICO = "2"
 
 # set configuration values
 class Config:
@@ -30,35 +30,11 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 
 start_time = time.time()
 
-#Routing of functions when a connection is established
-def handle_client(conn, addr):
-    global split_data_main
-    global split_data_imu
-    global split_data_ble
-    
-    print(f"[NEW CONNECTION] {addr} connected.")
-
-    connected = True
-    while connected:
-        data = conn.recv(512)
-        if not data:
-            return
-        decoded_data = data.decode('ascii')
-        
-        if (decoded_data.split()[0] == MAIN_PICO):
-            split_data_main = decoded_data.split()
-        elif (decoded_data.split()[0] == IMU_PICO):
-            split_data_imu = decoded_data.split()
-        elif (decoded_data.split()[0] == BLE_PICO):
-            split_data_ble = decoded_data.split()    
-               
-    conn.close()
-
 # Create a TCP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
-host, port = socket.gethostbyname(socket.gethostname()), 64000
+host, port = "0.0.0.0", 64000
 server_address = (host, port)
 
 print(f'Starting TCP server on {host} port {port}')
@@ -66,41 +42,48 @@ print(f'Starting TCP server on {host} port {port}')
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host, port))
 s.listen()
-#conn, addr = s.accept()
 
 print(f"[LISTENING] Server is listening on {host}:{port}")
 
-#Create threads when there is a new connection
-@scheduler.task('interval', id='poll_tcp', seconds=0.5, misfire_grace_time=2)
-def poll_tcp():
-    conn, addr = s.accept()
-    thread = threading.Thread(target=handle_client, args=(conn, addr))
-    thread.start()
-    print(f"[ACTIVE CONNECTIONS] {threading.activeCount() - 1}")
+split_data_main = [0, -1, -1, -1]
+split_data_imu = [1, 0]
+split_data_ble = [2, 0]
+count = 0
 
-'''
-@scheduler.task('interval', id='poll_data', seconds=0.5, misfire_grace_time=2)
-def poll_data():
-    global split_data
-
+# Routing of functions when a connection is established
+def handle_client(conn, addr):
+    global split_data_main
+    global split_data_imu
+    global split_data_ble
+    
     data = conn.recv(512)
     if not data:
         return
     decoded_data = data.decode('ascii')
-    split_data = decoded_data.split()
-'''
-
-split_data_imu = [1, 1]
+    
+    if (decoded_data.split()[0] == MAIN_PICO):
+        split_data_main = decoded_data.split()
+    elif (decoded_data.split()[0] == IMU_PICO):
+        split_data_imu = decoded_data.split()
+    elif (decoded_data.split()[0] == BLE_PICO):
+        split_data_ble = decoded_data.split()    
+               
+# Create threads when there is a new connection
+@scheduler.task('interval', id='poll_tcp', seconds=2)
+def poll_tcp():
+    global scheduler
+    global count
+    
+    conn, addr = s.accept()
+    scheduler.add_job(func=handle_client, args=(conn,addr), trigger='interval', id='test'+str(count), seconds=0.5)
+    print(f"[NEW CONNECTION] {addr} connected.")
+    count += 1
 
 def getData():
-    return [time.time() - start_time, randint(40,120), randint(90,100), randint(30,40)]
+    #return [time.time() - start_time, randint(40,120), randint(90,100), randint(30,40)]
     return split_data_main
 
 # APP ROUTES
-@app.route('/time', methods=['GET'])
-def getTime():
-    return str(getData()[0])
-
 @app.route('/heartrate', methods=['GET'])
 def heartrate():
     return str(getData()[1])

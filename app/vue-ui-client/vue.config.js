@@ -2,10 +2,6 @@ module.exports = {
 
     devServer: {
       proxy: {
-        '/time': {
-          target: 'http://localhost:5000',
-          changeOrigin: true,
-        },
         '/heartrate': {
           target: 'http://localhost:5000',
           changeOrigin: true,
@@ -15,6 +11,10 @@ module.exports = {
           changeOrigin: true,
         },
         '/temperature': {
+          target: 'http://localhost:5000',
+          changeOrigin: true,
+        },
+        '/position': {
           target: 'http://localhost:5000',
           changeOrigin: true,
         },

@@ -22,22 +22,6 @@ export default {
         };
     },
     methods: {
-        getTime() {
-            const path = 'http://127.0.0.1:5000/time';
-            axios.get(path)
-                .then((res) => {
-                    if (this.options.xaxis.categories.length >= 16) {
-                        this.options.xaxis.categories.shift();
-                        this.options.xaxis.categories.push(Math.round(res.data))
-                    }
-                    else {
-                        this.options.xaxis.categories.push(Math.round(res.data))
-                    }
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-        },
         getHR() {
             const path = 'http://127.0.0.1:5000/heartrate';
             axios.get(path)
