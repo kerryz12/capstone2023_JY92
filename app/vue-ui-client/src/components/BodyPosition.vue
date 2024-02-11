@@ -4,6 +4,8 @@ import Sitting from '@/assets/images/Sitting.png'
 import Standing from '@/assets/images/Standing.png'
 import NoData from '@/assets/images/NoData.png'
 
+import axios from 'axios'
+
 export default {
     data() {
         return {
@@ -11,14 +13,40 @@ export default {
             Sittingsrc: Sitting,
             Standingsrc: Standing,
             NoDatasrc: NoData,
-            position: ["notavail", "laying", "sitting", "standing"],
-            time: 30,
-            pos_val: 2
+            position: ["none", "lying", "sitting", "standing"],
+            time: 0,
+            pos_val: 2,
+            last_pos: 2
         };
+    },
+    methods: {
+        getPosition() {
+            const path = 'http://127.0.0.1:5000/position';
+            axios.get(path)
+            .then((res) => {
+                this.pos_val = res.data;
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+            if (this.last_pos != this.pos_val) {
+                this.time = 0;
+            }
+            else {
+                this.time += 1;
+            }
+            this.last_pos = this.pos_val;
+        },
+    },
+    created: async function() {
+        this.getPosition();
+
+        setInterval(function () {
+            this.getPosition();
+        }.bind(this), 1000); 
     }
 };
 </script>
-
 
 <template>
     <v-card width = 225 height="300" class = "justify-center align-center">
@@ -43,7 +71,7 @@ export default {
         </v-flex> 
         <v-container>
             <div class = "text-h8 px-3 mt-n4 text-center" v-if="pos_val != 0 "> 
-                The patient has been {{ position[pos_val] }} for the past {{ time }} minutes.</div>
+                The patient has been {{ position[pos_val] }} for the past {{ time }} seconds.</div>
         </v-container>
      </v-card>
 </template>

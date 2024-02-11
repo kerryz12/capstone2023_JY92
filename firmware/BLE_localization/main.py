@@ -160,7 +160,7 @@ class BLESimpleCentral:
 def on_scan(addr_type, addr, name, rssi):
     if addr_type is not None:
         print("Found Room:", name, ",Blutooth Signal Strength (dB)", rssi)
-        network_obj.sendTCPPacket("RSSI: " + str(rssi))
+        network_obj.sendTCPPacket("2 " + str(rssi))
         #Need to onvert rssi to distance
         #Distance = 10^((Measured Power - Instant RSSI)/(10*N))
         #Measured Power: rssi at a distance of 1m (need to measure), normally N=2
