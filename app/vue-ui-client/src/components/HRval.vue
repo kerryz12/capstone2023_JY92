@@ -6,7 +6,8 @@ export default {
     data() {
         return {
             HRsrc: HR,
-            heartrate: 60,
+            heartrate: 'Calibrating',
+            calibration_counter: 0,
         };
     },
     methods: {
@@ -14,7 +15,8 @@ export default {
             const path = 'http://127.0.0.1:5000/heartrate';
             axios.get(path)
             .then((res) => {
-                this.heartrate = res.data;
+                if (calibration_counter > 8) this.heartrate = res.data;
+                else calibration_counter += 1;
             })
             .catch((error) => {
                 console.error(error);

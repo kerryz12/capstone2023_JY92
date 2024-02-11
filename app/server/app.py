@@ -4,7 +4,6 @@ from flask_apscheduler import APScheduler
 import socket
 import time
 from random import randint
-import threading
 
 MAIN_PICO = "0"
 IMU_PICO = "1"

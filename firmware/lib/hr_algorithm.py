@@ -133,7 +133,7 @@ class DetectHeartbeat(object):
                     #print("Irregularly high or low heartrate")
                             
     def calculateAverageHR(self, hr):
-        average_spo2 = 0
+        average_hr = 0
 
         # if list containing values for average calculation is full
         if (len(self.average_hr_buffer) == HR_AVERAGE_SAMPLES):
@@ -146,18 +146,18 @@ class DetectHeartbeat(object):
 
             # calculate the average SpO2 value
             for i in range(HR_AVERAGE_SAMPLES):
-                average_spo2 += self.average_hr_buffer[i]
+                average_hr += self.average_hr_buffer[i]
 
-            return average_spo2 / HR_AVERAGE_SAMPLES
+            return average_hr / HR_AVERAGE_SAMPLES
 
         # otherwise append the samples to the list until the list is full
         else:
             self.average_hr_buffer.append(hr)
 
             for i in range(len(self.average_hr_buffer)):
-                average_spo2 += self.average_hr_buffer[i]
+                average_hr += self.average_hr_buffer[i]
 
-            return average_spo2 / len(self.average_hr_buffer)
+            return average_hr / len(self.average_hr_buffer)
 
     def getBeatAverage(self):
         return self.beatAvg
