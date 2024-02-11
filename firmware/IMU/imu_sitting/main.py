@@ -126,9 +126,9 @@ def get_gyro(datahex):
     wzl = datahex[4]
     wzh = datahex[5]
     k_gyro = 2000.0
-    gyro_x = (wxh << 8 | wxl) / 32768.0 * k_gyro
-    gyro_y = (wyh << 8 | wyl) / 32768.0 * k_gyro
-    gyro_z = (wzh << 8 | wzl) / 32768.0 * k_gyro
+    gyro_x = (wxh << int(8) | wxl) / 32768.0 * k_gyro
+    gyro_y = (wyh << int(8) | wyl) / 32768.0 * k_gyro
+    gyro_z = (wzh << int(8) | wzl) / 32768.0 * k_gyro
     if gyro_x >= k_gyro:
         gyro_x -= 2 * k_gyro
     if gyro_y >= k_gyro:

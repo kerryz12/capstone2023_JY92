@@ -1,10 +1,25 @@
 import machine
 import utime
+from lib.networking import *
+
+#Patient states
+POS_NONE = 0
+POS_LYING = 1
+POS_SITTING = 2
+POS_STANDING = 3
 
 # UART configuration for Pico W
 # This part of the code initializes the Raspberry
 # Pi Pico W's UART0 interface, sets the baud rate to 9600, and specifies the UART's TX (transmit) and RX (receive) pins as GPIO 12 and GPIO 13, respectively.
 uart = machine.UART(0, baudrate=9600, tx=machine.Pin(12), rx=machine.Pin(13))
+
+# set up wifi and TCP communication protocols
+host, port = '192.168.159.40', 64000
+server_address = (host, port)
+
+network_obj = Networking()
+network_obj.connect()
+network_obj.createTCPSocket(server_address)
 
 # Global variables to store the IMU data
 # acceleration, gyroscope and angle data read from the IMU.
@@ -28,6 +43,7 @@ def DueData(inputdata):  # New core procedures, read the data partition, each re
     global acc
     global gyro
     global Angle
+    acc = get_acc(ACCData)
     for data in inputdata:  # Traversal the input data
         if FrameState == 0:  # When the state is not determined, enter the following judgment
             if data == 0x55 and Bytenum == 0:  # When 0x55 is the first digit, start reading data and increment bytenum
@@ -52,6 +68,7 @@ def DueData(inputdata):  # New core procedures, read the data partition, each re
                 ACCData[Bytenum-2] = data  # Starting from 0
                 CheckSum += data
                 Bytenum += 1
+                acc = 0
             else:
                 if data == (CheckSum & 0xff):  # verify check bit
                     acc = get_acc(ACCData)
@@ -80,6 +97,7 @@ def DueData(inputdata):  # New core procedures, read the data partition, each re
                 if data == (CheckSum & 0xff):
                     Angle = get_angle(AngleData)
                     result = acc+gyro+Angle
+                    #network_obj.sendTCPPacket("%10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f\n" % result)
                     print(
                         "acc:%10.3f %10.3f %10.3f \ngyro:%10.3f %10.3f %10.3f \nangle:%10.3f %10.3f %10.3f" % result)
                 CheckSum = 0
@@ -95,9 +113,9 @@ def get_acc(datahex):
     azl = datahex[4]
     azh = datahex[5]
     k_acc = 16.0
-    acc_x = (axh << 8 | axl) / 32768.0 * k_acc
-    acc_y = (ayh << 8 | ayl) / 32768.0 * k_acc
-    acc_z = (azh << 8 | azl) / 32768.0 * k_acc
+    acc_x = (int(axh) << int(8) | int(axl)) / 32768.0 * k_acc
+    acc_y = (int(ayh) << int(8) | int(ayl)) / 32768.0 * k_acc
+    acc_z = (int(azh) << int(8) | int(azl)) / 32768.0 * k_acc
     if acc_x >= k_acc:
         acc_x -= 2 * k_acc
     if acc_y >= k_acc:
@@ -115,9 +133,9 @@ def get_gyro(datahex):
     wzl = datahex[4]
     wzh = datahex[5]
     k_gyro = 2000.0
-    gyro_x = (wxh << 8 | wxl) / 32768.0 * k_gyro
-    gyro_y = (wyh << 8 | wyl) / 32768.0 * k_gyro
-    gyro_z = (wzh << 8 | wzl) / 32768.0 * k_gyro
+    gyro_x = (int(wxh) << int(8) | int(wxl)) / 32768.0 * k_gyro
+    gyro_y = (int(wyh) << int(8) | int(wyl)) / 32768.0 * k_gyro
+    gyro_z = (int(wzh) << int(8) | int(wzl)) / 32768.0 * k_gyro
     if gyro_x >= k_gyro:
         gyro_x -= 2 * k_gyro
     if gyro_y >= k_gyro:
@@ -135,9 +153,9 @@ def get_angle(datahex):
     rzl = datahex[4]
     rzh = datahex[5]
     k_angle = 180.0
-    angle_x = (rxh << 8 | rxl) / 32768.0 * k_angle
-    angle_y = (ryh << 8 | ryl) / 32768.0 * k_angle
-    angle_z = (rzh << 8 | rzl) / 32768.0 * k_angle
+    angle_x = (int(rxh) << int(8) | int(rxl)) / 32768.0 * k_angle
+    angle_y = (int(ryh) << int(8) | int(ryl)) / 32768.0 * k_angle
+    angle_z = (int(rzh) << int(8) | int(rzl)) / 32768.0 * k_angle
     if angle_x >= k_angle:
         angle_x -= 2 * k_angle
     if angle_y >= k_angle:
@@ -158,13 +176,30 @@ def main():
                 angle_x, angle_y, angle_z = current_angles
                 
                 # Check the first condition
-                if -10 <= angle_x <= 10 and -10 <= angle_y <= 10:
+                if -10 <= angle_x <= 30 and -40 <= angle_y <= 15:
+                    #network_obj.sendTCPPacket("\nSitting")
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING))
+                    print("Sitting")
+                # Check the sitting condition if the patient crossing legs   
+                elif -5 <= angle_x <= 40 and 0 <= angle_y <= 45:
+                    #network_obj.sendTCPPacket("\nSitting")
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING))
+                    print("Sitting")
+                # Check the sitting condition if the patient spreading legs   
+                elif 5 <= angle_x <= 20 and -50 <= angle_y <= -10:
+                    #network_obj.sendTCPPacket("\nSitting")
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING))
                     print("Sitting")
                 # Check the second condition
-                elif -190 <= angle_x <= -110 :
+                elif -90 < angle_y< -60 :
+                    #network_obj.sendTCPPacket("\nStanding")
+                    network_obj.sendTCPPacket("2 " + str(POS_STANDING))
                     print("standing")
+                else:
+                    print("\n")
+                    network_obj.sendTCPPacket("2 " + str(POS_NONE))
         
-        utime.sleep_ms(50)  # Delay to prevent reading too quickly
+        utime.sleep_ms(100)  # Delay to prevent reading too quickly
 
 # Main execution
 if __name__ == '__main__':

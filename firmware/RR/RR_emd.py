@@ -17,6 +17,7 @@ time, ir, green, red = data_array[:, 0], data_array[:, 1], data_array[:, 2], dat
 
 # Visualise the time-series for analysis
 plt.figure(figsize=(12, 4))
+#plt.plot(green)
 #plt.show()
 
 x=red+green+ir
