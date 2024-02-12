@@ -3,8 +3,8 @@ import sys
 from struct import unpack
 
 # clear data file
-f = open('../data/output.txt', 'w')
-f.close()
+#f = open('../data/output.txt', 'w')
+#f.close()
 
 # Create a TCP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -33,5 +33,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(decoded_data)
 
             # write data to output file
-            with open('../data/output.txt', 'a') as f:
-                f.write(decoded_data)
+ #           with open('../data/output.txt', 'a') as f:
+  #              f.write(decoded_data)

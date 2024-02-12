@@ -4,11 +4,12 @@ from flask_apscheduler import APScheduler
 import socket
 import time
 from random import randint
-import threading
+
+#import threading
 
 MAIN_PICO = "0"
-IMU_PICO = "1"
-BLE_PICO = "2"
+IMU_PICO_SHOULDER = "1" #will contain BLE
+IMU_PICO_THIGH = "2"
 
 # set configuration values
 class Config:
@@ -46,8 +47,8 @@ s.listen()
 print(f"[LISTENING] Server is listening on {host}:{port}")
 
 split_data_main = [0, -1, -1, -1]
-split_data_imu = [1, 0]
-split_data_ble = [2, 0]
+split_data_imus = [1, 0]
+split_data_imut = [2, 0]
 count = 0
 
 # Routing of functions when a connection is established
@@ -63,10 +64,10 @@ def handle_client(conn, addr):
     
     if (decoded_data.split()[0] == MAIN_PICO):
         split_data_main = decoded_data.split()
-    elif (decoded_data.split()[0] == IMU_PICO):
-        split_data_imu = decoded_data.split()
-    elif (decoded_data.split()[0] == BLE_PICO):
-        split_data_ble = decoded_data.split()    
+    elif (decoded_data.split()[0] == IMU_PICO_SHOULDER):
+        split_data_imus = decoded_data.split()
+    elif (decoded_data.split()[0] == IMU_PICO_THIGH):
+        split_data_imut = decoded_data.split()    
                
 # Create threads when there is a new connection
 @scheduler.task('interval', id='poll_tcp', seconds=2)
@@ -98,7 +99,7 @@ def temperature():
 
 @app.route('/position', methods=['GET'])
 def position():
-    return str(split_data_imu[1])
+    return str(split_data_imus[1])
 
 if __name__ == '__main__':
     app.run(port=5000)
