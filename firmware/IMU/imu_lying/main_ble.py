@@ -2,7 +2,7 @@ import machine
 import utime
 from lib.networking import *
 from micropython import const
-from ble_advertising import decode_services, decode_name
+from lib.ble_advertising import decode_services, decode_name
 import struct
 import bluetooth
 import time
