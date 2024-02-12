@@ -1,9 +1,11 @@
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      room_val: 0,
-      room_string: "Unknown"
+      room_val: "0",
+      room_string: "Unknown",
     };
   },
   methods: {
@@ -13,14 +15,14 @@ export default {
         .get(path)
         .then((res) => {
           this.room_val = res.data;
-          if (this.room_val == 1) this.room_string = "Room 1"
-          else if (this.room_val == 2) this.room_string = "Room 2"
-          else if (this.room_val == 3) this.room_string = "Hallway"
-          else this.room_string = "Unknown"
         })
         .catch((error) => {
           console.error(error);
         });
+      if (this.room_val == "1") this.room_string = "Room 1";
+      else if (this.room_val == "2") this.room_string = "Room 2";
+      else if (this.room_val == "3") this.room_string = "Hallway";
+      else this.room_string = "Unknown";
     },
   },
   created: async function () {
