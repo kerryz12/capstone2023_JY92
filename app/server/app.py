@@ -6,8 +6,8 @@ import time
 from random import randint
 
 MAIN_PICO = "0"
-IMU_PICO_SHOULDER = "1" #will contain BLE
-IMU_PICO_THIGH = "2"
+IMU_SHOULDER_PICO = "1" # will contain BLE
+IMU_THIGH_PICO = "2"
 
 # set configuration values
 class Config:
@@ -44,9 +44,9 @@ s.listen()
 
 print(f"[LISTENING] Server is listening on {host}:{port}")
 
-split_data_main = [0, -1, -1, -1]
-split_data_shoulder = [1, 0, 0]
-split_data_thigh = [2, 0]
+split_data_main = ["0", "-1", "-1", "-1"]
+split_data_shoulder = ["1", "0", "0"]
+split_data_thigh = ["2", "0"]
 count = 0
 
 # Routing of functions when a connection is established
