@@ -406,7 +406,7 @@ def main():
                     network_obj.sendTCPPacket("1 " + str(POS_NONE) + " " + str(current_room))
                     print("not lying")
 
-        utime.sleep_ms(100)  # Delay to prevent reading too quickly
+        utime.sleep_ms(250)  # Delay to prevent reading too quickly
 
 # Main execution
 if __name__ == '__main__':

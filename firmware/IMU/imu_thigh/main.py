@@ -190,7 +190,7 @@ def main():
                     network_obj.sendTCPPacket("2 " + str(POS_STANDING))
                     print("Standing")
         
-        utime.sleep_ms(100)  # Delay to prevent reading too quickly
+        utime.sleep_ms(250)  # Delay to prevent reading too quickly
 
 # Main execution
 if __name__ == '__main__':

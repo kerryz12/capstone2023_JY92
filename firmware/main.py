@@ -49,7 +49,6 @@ while(True):
         red = sensor.pop_red_from_storage()
         ir = sensor.pop_ir_from_storage()
         green = sensor.pop_green_from_storage()
-        print(red)
 
         # get the DC value of each LED reading
         red_dc = red_ac.averageDCEstimator(red_ac.ir_avg_reg, red)

@@ -75,7 +75,7 @@ def poll_tcp():
     global count
     
     conn, addr = s.accept()
-    scheduler.add_job(func=handle_client, args=(conn,addr), trigger='interval', id='handle_client'+str(count), seconds=0.5)
+    scheduler.add_job(func=handle_client, args=(conn,addr), trigger='interval', id='handle_client'+str(count), seconds=0.1)
     print(f"[NEW CONNECTION] {addr} connected.")
     count += 1
 
