@@ -6,8 +6,8 @@ import time
 from random import randint
 
 MAIN_PICO = "0"
-IMU_SHOULDER_PICO = "1"
-IMU_THIGH_PICO = "2"
+IMU_PICO_SHOULDER = "1" #will contain BLE
+IMU_PICO_THIGH = "2"
 
 # set configuration values
 class Config:
