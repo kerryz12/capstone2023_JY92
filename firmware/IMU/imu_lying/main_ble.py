@@ -7,7 +7,7 @@ import struct
 import bluetooth
 import time
 
-#Patient states
+# Patient states
 POS_NONE = 0
 POS_LYING = 1
 POS_SITTING = 2
@@ -179,25 +179,19 @@ def on_scan(addr_type, addr, name, rssi):
         if(name == "Room 1" and rssi > -65):
             print("Inside",name)
             current_room = 1
-            network_obj.sendTCPPacket("Inside Room " + str(current_room))
         elif(name == "Room 2" and rssi > -73):
             print("Inside",name)
             current_room = 2
-            network_obj.sendTCPPacket("Inside Room " + str(current_room))
         elif(name == "Room 1" and rssi <= -65 and current_room == 1):
             print("Corridor")
             current_room = 3
-            network_obj.sendTCPPacket("Inside Corridor")
         elif(name == "Room 2" and rssi <= -73 and current_room == 2):
             print("Corridor")
             current_room = 3
-            network_obj.sendTCPPacket("Inside Corridor")
         elif(current_room == 3):
             print("Corridor")
-            network_obj.sendTCPPacket("Inside Corridor")
         else:
             print("Inside Room",current_room)
-            network_obj.sendTCPPacket("Inside Room " + str(current_room))
         #Need to onvert rssi to distance
         #Distance = 10^((Measured Power - Instant RSSI)/(10*N))
         #Measured Power: rssi at a distance of 1m (need to measure), normally N=2
@@ -333,6 +327,8 @@ def get_gyro(datahex):
 
 
 def get_angle(datahex):
+    global current_room
+    
     rxl = datahex[0]
     rxh = datahex[1]
     ryl = datahex[2]
@@ -370,16 +366,16 @@ def main():
                 
                 # Check the first condition
                 if 60 <= angle_y <= 90 :
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING))
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room))
                     print("lying")
                 elif 60 <= angle_x <= 110 and angle_y < 60:
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING))
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room))
                     print("lying")
                 elif -180 <= angle_x <= -60 and angle_y < 60:
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING))
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room))
                     print("lying")
                 else:
-                    network_obj.sendTCPPacket("1 " + str(POS_NONE))
+                    network_obj.sendTCPPacket("1 " + str(POS_NONE) + " " + str(current_room))
                     print("not lying")
 
         utime.sleep_ms(100)  # Delay to prevent reading too quickly

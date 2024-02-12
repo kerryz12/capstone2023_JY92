@@ -6,8 +6,8 @@ import time
 from random import randint
 
 MAIN_PICO = "0"
-IMU_PICO_SHOULDER = "1" #will contain BLE
-IMU_PICO_THIGH = "2"
+IMU_SHOULDER_PICO = "1"
+IMU_THIGH_PICO = "2"
 
 # set configuration values
 class Config:
@@ -45,15 +45,15 @@ s.listen()
 print(f"[LISTENING] Server is listening on {host}:{port}")
 
 split_data_main = [0, -1, -1, -1]
-split_data_imus = [1, 0]
-split_data_imut = [2, 0]
+split_data_shoulder = [1, 0, 0]
+split_data_thigh = [2, 0]
 count = 0
 
 # Routing of functions when a connection is established
 def handle_client(conn, addr):
     global split_data_main
-    global split_data_imu
-    global split_data_ble
+    global split_data_shoulder
+    global split_data_thigh
     
     data = conn.recv(512)
     if not data:
@@ -62,10 +62,10 @@ def handle_client(conn, addr):
     
     if (decoded_data.split()[0] == MAIN_PICO):
         split_data_main = decoded_data.split()
-    elif (decoded_data.split()[0] == IMU_PICO_SHOULDER):
-        split_data_imus = decoded_data.split()
-    elif (decoded_data.split()[0] == IMU_PICO_THIGH):
-        split_data_imut = decoded_data.split()    
+    elif (decoded_data.split()[0] == IMU_SHOULDER_PICO):
+        split_data_shoulder = decoded_data.split()
+    elif (decoded_data.split()[0] == IMU_THIGH_PICO):
+        split_data_thigh = decoded_data.split()
                
 # Create threads when there is a new connection
 @scheduler.task('interval', id='poll_tcp', seconds=2)
@@ -82,6 +82,20 @@ def getData():
     #return [time.time() - start_time, randint(40,120), randint(90,100), randint(30,40)]
     return split_data_main
 
+# POS_NONE = 0
+# POS_LYING = 1
+# POS_SITTING = 2
+# POS_STANDING = 3
+def getPosition():
+    if (split_data_shoulder[1] == "0" and split_data_thigh[1] == "2"):
+        return "2"
+    elif (split_data_shoulder[1] == "0" and split_data_thigh[1] == "3"):
+        return "3"
+    elif (split_data_shoulder[1] == "1" and split_data_thigh[1] == "2"):
+        return "1"
+    else:
+        return "0"
+
 # APP ROUTES
 @app.route('/heartrate', methods=['GET'])
 def heartrate():
@@ -97,7 +111,11 @@ def temperature():
 
 @app.route('/position', methods=['GET'])
 def position():
-    return str(split_data_imus[1])
+    return getPosition()
+
+@app.route('/location', methods=['GET'])
+def location():
+    return split_data_shoulder[2]
 
 if __name__ == '__main__':
     app.run(port=5000)
