@@ -178,11 +178,11 @@ def main():
                     network_obj.sendTCPPacket("2 " + str(POS_SITTING))
                     print("Sitting")
                 # Check the sitting condition if the patient crossing legs   
-                if -5 <= angle_x <= 40 and 0 <= angle_y <= 45:
+                elif -5 <= angle_x <= 40 and 0 <= angle_y <= 45:
                     network_obj.sendTCPPacket("2 " + str(POS_SITTING))
                     print("Sitting")
                 # Check the sitting condition if the patient spreading legs   
-                if 5 <= angle_x <= 20 and -50 <= angle_y <= -10:
+                elif 5 <= angle_x <= 20 and -50 <= angle_y <= -10:
                     network_obj.sendTCPPacket("2 " + str(POS_SITTING))
                     print("Sitting")
                 # Check the second condition
@@ -190,8 +190,9 @@ def main():
                     network_obj.sendTCPPacket("2 " + str(POS_STANDING))
                     print("standing")
         
-        utime.sleep_ms(50)  # Delay to prevent reading too quickly
+        utime.sleep_ms(500)  # Delay to prevent reading too quickly
 
 # Main execution
 if __name__ == '__main__':
     main()  # Call the main function
+

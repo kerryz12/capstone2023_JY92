@@ -59,6 +59,7 @@ def handle_client(conn, addr):
     if not data:
         return
     decoded_data = data.decode('ascii')
+    print(decoded_data)
     
     if (decoded_data.split()[0] == MAIN_PICO):
         split_data_main = decoded_data.split()
@@ -74,7 +75,7 @@ def poll_tcp():
     global count
     
     conn, addr = s.accept()
-    scheduler.add_job(func=handle_client, args=(conn,addr), trigger='interval', id='test'+str(count), seconds=0.5)
+    scheduler.add_job(func=handle_client, args=(conn,addr), trigger='interval', id='handle_client'+str(count), seconds=0.1)
     print(f"[NEW CONNECTION] {addr} connected.")
     count += 1
 
