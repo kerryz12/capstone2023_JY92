@@ -5,8 +5,6 @@ import socket
 import time
 from random import randint
 
-#import threading
-
 MAIN_PICO = "0"
 IMU_PICO_SHOULDER = "1" #will contain BLE
 IMU_PICO_THIGH = "2"
