@@ -2,6 +2,7 @@ import machine
 import utime
 from lib.networking import *
 
+#Patient states
 POS_NONE = 0
 POS_LYING = 1
 POS_SITTING = 2
@@ -13,7 +14,7 @@ POS_STANDING = 3
 uart = machine.UART(0, baudrate=9600, tx=machine.Pin(12), rx=machine.Pin(13))
 
 # set up wifi and TCP communication protocols
-host, port = '192.168.159.115', 64000
+host, port = '192.168.159.40', 64000
 server_address = (host, port)
 
 network_obj = Networking()
@@ -42,6 +43,7 @@ def DueData(inputdata):  # New core procedures, read the data partition, each re
     global acc
     global gyro
     global Angle
+    acc = get_acc(ACCData)
     for data in inputdata:  # Traversal the input data
         if FrameState == 0:  # When the state is not determined, enter the following judgment
             if data == 0x55 and Bytenum == 0:  # When 0x55 is the first digit, start reading data and increment bytenum
@@ -111,9 +113,9 @@ def get_acc(datahex):
     azl = datahex[4]
     azh = datahex[5]
     k_acc = 16.0
-    acc_x = (axh << 8 | axl) / 32768.0 * k_acc
-    acc_y = (ayh << 8 | ayl) / 32768.0 * k_acc
-    acc_z = (azh << 8 | azl) / 32768.0 * k_acc
+    acc_x = (int(axh) << int(8) | int(axl)) / 32768.0 * k_acc
+    acc_y = (int(ayh) << int(8) | int(ayl)) / 32768.0 * k_acc
+    acc_z = (int(azh) << int(8) | int(azl)) / 32768.0 * k_acc
     if acc_x >= k_acc:
         acc_x -= 2 * k_acc
     if acc_y >= k_acc:
@@ -131,9 +133,9 @@ def get_gyro(datahex):
     wzl = datahex[4]
     wzh = datahex[5]
     k_gyro = 2000.0
-    gyro_x = (wxh << int(8) | wxl) / 32768.0 * k_gyro
-    gyro_y = (wyh << int(8) | wyl) / 32768.0 * k_gyro
-    gyro_z = (wzh << int(8) | wzl) / 32768.0 * k_gyro
+    gyro_x = (int(wxh) << int(8) | int(wxl)) / 32768.0 * k_gyro
+    gyro_y = (int(wyh) << int(8) | int(wyl)) / 32768.0 * k_gyro
+    gyro_z = (int(wzh) << int(8) | int(wzl)) / 32768.0 * k_gyro
     if gyro_x >= k_gyro:
         gyro_x -= 2 * k_gyro
     if gyro_y >= k_gyro:
@@ -151,9 +153,9 @@ def get_angle(datahex):
     rzl = datahex[4]
     rzh = datahex[5]
     k_angle = 180.0
-    angle_x = (rxh << int(8) | rxl) / 32768.0 * k_angle
-    angle_y = (ryh << int(8) | ryl) / 32768.0 * k_angle
-    angle_z = (rzh << int(8) | rzl) / 32768.0 * k_angle
+    angle_x = (int(rxh) << int(8) | int(rxl)) / 32768.0 * k_angle
+    angle_y = (int(ryh) << int(8) | int(ryl)) / 32768.0 * k_angle
+    angle_z = (int(rzh) << int(8) | int(rzl)) / 32768.0 * k_angle
     if angle_x >= k_angle:
         angle_x -= 2 * k_angle
     if angle_y >= k_angle:
@@ -175,22 +177,29 @@ def main():
                 
                 # Check the first condition
                 if -10 <= angle_x <= 30 and -40 <= angle_y <= 15:
-                    network_obj.sendTCPPacket("1 " + str(POS_SITTING))
+                    #network_obj.sendTCPPacket("\nSitting")
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING))
                     print("Sitting")
                 # Check the sitting condition if the patient crossing legs   
-                if -5 <= angle_x <= 40 and 0 <= angle_y <= 45:
-                    network_obj.sendTCPPacket("1 " + str(POS_SITTING))
+                elif -5 <= angle_x <= 40 and 0 <= angle_y <= 45:
+                    #network_obj.sendTCPPacket("\nSitting")
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING))
                     print("Sitting")
                 # Check the sitting condition if the patient spreading legs   
-                if 5 <= angle_x <= 20 and -50 <= angle_y <= -10:
-                    network_obj.sendTCPPacket("1 " + str(POS_SITTING))
+                elif 5 <= angle_x <= 20 and -50 <= angle_y <= -10:
+                    #network_obj.sendTCPPacket("\nSitting")
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING))
                     print("Sitting")
                 # Check the second condition
-                elif -190 <= angle_x <= -110 :
-                    network_obj.sendTCPPacket("1 " + str(POS_STANDING))
+                elif -90 < angle_y< -60 :
+                    #network_obj.sendTCPPacket("\nStanding")
+                    network_obj.sendTCPPacket("2 " + str(POS_STANDING))
                     print("standing")
+                else:
+                    print("\n")
+                    network_obj.sendTCPPacket("2 " + str(POS_NONE))
         
-        utime.sleep_ms(50)  # Delay to prevent reading too quickly
+        utime.sleep_ms(100)  # Delay to prevent reading too quickly
 
 # Main execution
 if __name__ == '__main__':
