@@ -59,8 +59,8 @@ def handle_client(conn, addr):
     if not data:
         return
     decoded_data = data.decode('ascii')
-    print(decoded_data)
-    
+
+    print(decoded_data.split())    
     if (decoded_data.split()[0] == MAIN_PICO):
         split_data_main = decoded_data.split()
     elif (decoded_data.split()[0] == IMU_SHOULDER_PICO):
