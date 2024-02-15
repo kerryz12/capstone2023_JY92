@@ -3,6 +3,7 @@ from lib.max30102 import MAX30102
 from lib.hr_algorithm import *
 from lib.spo2_algorithm import *
 from lib.networking import *
+from utime import sleep_ms
 
 # pin values
 SDA_PIN = 8
@@ -64,6 +65,10 @@ while(True):
         temperature = sensor.read_temperature() + 8
 
         # send the data to the TCP server
-        current_time = time.ticks_ms() - start_time
-        print(str(red) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
-        network_obj.sendTCPPacket("0 " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
+        if (count >= 10):
+            current_time = time.ticks_ms() - start_time
+            print(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
+            network_obj.sendTCPPacket("0 " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
+            count = 0
+        else:
+            count += 1

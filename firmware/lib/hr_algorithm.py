@@ -3,7 +3,7 @@
 
 import time
 
-HR_AVERAGE_SAMPLES = 8
+HR_AVERAGE_SAMPLES = 16
 
 class HeartBeat(object):
     
@@ -55,9 +55,9 @@ class HeartBeat(object):
 
         #  Process next data sample
         self.IR_Average_Estimated = self.averageDCEstimator(self.ir_avg_reg, sample)
-        self.IR_AC_Signal_Current = self.lowPassFIRFilter(sample - self.IR_Average_Estimated)
+        self.IR_AC_Signal_Current = sample - self.IR_Average_Estimated #self.lowPassFIRFilter(sample - self.IR_Average_Estimated)
 
-        #print("prev: " + str(self.IR_AC_Signal_Previous) + "\ncurr: " + str(self.IR_AC_Signal_Current))
+        # print("prev: " + str(self.IR_AC_Signal_Previous) + "\ncurr: " + str(self.IR_AC_Signal_Current))
         #  Detect positive zero crossing (rising edge)
         if ((self.IR_AC_Signal_Previous < 0) and (self.IR_AC_Signal_Current >= 0)):
             self.IR_AC_Max = self.IR_AC_Signal_max
