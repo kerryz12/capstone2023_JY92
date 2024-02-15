@@ -13,7 +13,7 @@ POS_STANDING = 3
 uart = machine.UART(0, baudrate=9600, tx=machine.Pin(12), rx=machine.Pin(13))
 
 # set up wifi and TCP communication protocols
-host, port = '192.168.159.115', 64000
+host, port = '192.168.137.1', 64000
 server_address = (host, port)
 
 network_obj = Networking()
@@ -175,22 +175,22 @@ def main():
                 
                 # Check the first condition
                 if -10 <= angle_x <= 30 and -40 <= angle_y <= 15:
-                    network_obj.sendTCPPacket("2 " + str(POS_SITTING))
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING) + " ")
                     print("Sitting")
                 # Check the sitting condition if the patient crossing legs   
                 elif -5 <= angle_x <= 40 and 0 <= angle_y <= 45:
-                    network_obj.sendTCPPacket("2 " + str(POS_SITTING))
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING) + " ")
                     print("Sitting")
                 # Check the sitting condition if the patient spreading legs   
                 elif 5 <= angle_x <= 20 and -50 <= angle_y <= -10:
-                    network_obj.sendTCPPacket("2 " + str(POS_SITTING))
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING) + " ")
                     print("Sitting")
                 # Check the second condition
                 elif -190 <= angle_x <= -110 :
-                    network_obj.sendTCPPacket("2 " + str(POS_STANDING))
+                    network_obj.sendTCPPacket("2 " + str(POS_STANDING) + " ")
                     print("Standing")
         
-        utime.sleep_ms(500)  # Delay to prevent reading too quickly
+        utime.sleep_ms(200)  # Delay to prevent reading too quickly
 
 # Main execution
 if __name__ == '__main__':

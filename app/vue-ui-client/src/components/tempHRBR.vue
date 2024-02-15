@@ -41,11 +41,9 @@ export default {
     },
     created: async function () {
         this.getHR();
-        this.getTime();
 
         setInterval(function () {
             this.getHR();
-            this.getTime();
         }.bind(this), 1000);
     }
 }

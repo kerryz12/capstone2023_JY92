@@ -33,5 +33,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(decoded_data)
 
             # write data to output file
-            with open('../data/output.txt', 'a') as f:
+            with open('data/output.txt', 'a') as f:
                 f.write(decoded_data)
