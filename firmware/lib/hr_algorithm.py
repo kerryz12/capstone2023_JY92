@@ -90,8 +90,8 @@ class HeartBeat(object):
 class DetectHeartbeat(object):
     def __init__(self):
         #Variables for getting a finger pulse
-        self.l_threshold = 1500
-        self.u_threshold = 2500
+        self.l_threshold = 2000
+        self.u_threshold = 100000
 
         self.lastBeat = 0
         self.beat = HeartBeat()

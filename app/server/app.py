@@ -33,7 +33,8 @@ start_time = time.time()
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
-host, port = "0.0.0.0", 64000
+#socket.gethostbyname(socket.gethostname())
+host, port = '0.0.0.0', 64000
 server_address = (host, port)
 
 print(f'Starting TCP server on {host} port {port}')
@@ -56,6 +57,7 @@ def handle_client(conn, addr):
     global split_data_thigh
     
     data = conn.recv(512)
+    print("Connected")
     if not data:
         return
     decoded_data = data.decode('ascii')
@@ -88,10 +90,13 @@ def getData():
 # POS_STANDING = 3
 def getPosition():
     if (split_data_shoulder[1] == "0" and split_data_thigh[1] == "2"):
+        print("2")
         return "2"
     elif (split_data_shoulder[1] == "0" and split_data_thigh[1] == "3"):
+        print("3")
         return "3"
     elif (split_data_shoulder[1] == "1" and split_data_thigh[1] == "2"):
+        print("1")
         return "1"
     else:
         return "0"

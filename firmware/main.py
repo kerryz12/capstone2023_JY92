@@ -32,9 +32,11 @@ heartbeat_obj = DetectHeartbeat()
 host, port = '192.168.159.115', 64000
 server_address = (host, port)
 
+'''
 network_obj = Networking()
 network_obj.connect()
 network_obj.createTCPSocket(server_address)
+'''
 
 # keep track of time elapsed
 start_time = time.ticks_ms()
@@ -49,7 +51,6 @@ while(True):
         red = sensor.pop_red_from_storage()
         ir = sensor.pop_ir_from_storage()
         green = sensor.pop_green_from_storage()
-        print(red)
 
         # get the DC value of each LED reading
         red_dc = red_ac.averageDCEstimator(red_ac.ir_avg_reg, red)
@@ -66,5 +67,6 @@ while(True):
 
         # send the data to the TCP server
         current_time = time.ticks_ms() - start_time
-        print(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
-        network_obj.sendTCPPacket("0 " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
+        print(str(current_time) + " " + str(red) + " " + str(green) + " " + str(ir))
+       # print(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
+       # network_obj.sendTCPPacket("0 " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
