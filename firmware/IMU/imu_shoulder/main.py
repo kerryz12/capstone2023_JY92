@@ -19,7 +19,7 @@ POS_STANDING = 3
 uart = machine.UART(0, baudrate=9600, tx=machine.Pin(12), rx=machine.Pin(13))
 
 # set up wifi and TCP communication protocols
-host, port = '192.168.159.115', 64000
+host, port = '192.168.137.1', 64000
 server_address = (host, port)
 
 network_obj = Networking()
@@ -369,47 +369,41 @@ def main():
                 
                 # Check the nromal lying condition ( face up)
                 if -40 <= angle_y <= 0 :
-                    #network_obj.sendTCPPacket("1 " + str(POS_LYING))
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room))
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
                     print("lying")
                     
                 #Check the normal lying but with tilting (face up)
                 elif -110 <= angle_x <= -60 and -60 <= angle_y <= 40:
-                    #network_obj.sendTCPPacket("1 " + str(POS_LYING))
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room))
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
                     print("lying")
                     
                 #Check the lying on the left side
                 elif 120 <= angle_x <= 170 and -80 <= angle_y < -30:
-                    #network_obj.sendTCPPacket("1 " + str(POS_LYING))
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room))
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
                     print("lying")
                     
                 #Check the lying on the right side
                 elif -125 <= angle_x <= -70 and 0 <= angle_y <= 70 :
-                    #network_obj.sendTCPPacket("1 " + str(POS_LYING))
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room))
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
                     print("lying")
                     
                 elif -180 <= angle_x <= -90 and -85 <= angle_y < -40 :
-                    #network_obj.sendTCPPacket("1 " + str(POS_LYING))
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room))
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
                     print("lying")
                     
                 elif 100 <= angle_x <= 180 and -85 <= angle_y < -50 :
-                    #network_obj.sendTCPPacket("1 " + str(POS_LYING))
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room))
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
                     print("lying")
                     
                 else:
-                    #network_obj.sendTCPPacket("1 " + str(POS_NONE))
-                    network_obj.sendTCPPacket("1 " + str(POS_NONE) + " " + str(current_room))
+                    network_obj.sendTCPPacket("1 " + str(POS_NONE) + " " + str(current_room) + " ")
                     print("not lying")
 
-        utime.sleep_ms(100)  # Delay to prevent reading too quickly
+        utime.sleep_ms(200)  # Delay to prevent reading too quickly
 
 # Main execution
 if __name__ == '__main__':
     main()  # Call the main function
    
+
 

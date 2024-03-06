@@ -14,7 +14,7 @@ export default {
       axios
         .get(path)
         .then((res) => {
-          this.room_val = res.data;
+          if (parseInt(res.data) >= 0 && parseInt(res.data) <= 3) this.room_val = res.data;
         })
         .catch((error) => {
           console.error(error);

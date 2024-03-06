@@ -6,8 +6,8 @@ from machine import Pin, Timer
 
 class Networking(object):
     def __init__(self):
-        self.ssid = 'TinTina'
-        self.password = 'tinanguyen'
+        self.ssid = 'Kerry’s iPhone'
+        self.password = 'a1cwy4vqty1vy'
         self.led = Pin("LED", Pin.OUT)
 
 
