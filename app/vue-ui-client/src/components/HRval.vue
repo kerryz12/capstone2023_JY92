@@ -21,6 +21,10 @@ export default {
             .catch((error) => {
                 console.error(error);
             });
+
+            if (this.calibration_counter > 2) this.heartrate = '180';
+            else this.calibration_counter += 1;
+
         },
     },
     created: async function() {

@@ -9,7 +9,7 @@
   import Location from '@/components/Location.vue';
   import HRval from '@/components/HRval.vue';
   import BRval from '@/components/BRval.vue';
-
+  import alert from '@/components/alerts/alert.vue';
   
   export default {
     name: 'MainDash',
@@ -28,12 +28,20 @@
                 console.error(error);
             });
         },
+
+        pollAlert() {
+          if (this.$refs.hr.heartrate > 150) this.$refs.alert.showModal();
+        }
     },
     created() {
         this.getMessage();
+
+        setInterval(function () {
+            this.pollAlert();
+        }.bind(this), 1000);
     },
     components: { SpO2chart, tempHRBR, HRandBRchart, Temperaturechart, 
-      BodyPosition, Location, HRval, BRval, BodyDynamics }
+      BodyPosition, Location, HRval, BRval, BodyDynamics, alert }
 };
   </script>
 
@@ -50,7 +58,7 @@
             <v-container class="ml-n2">
               <v-row>
                 <v-col no-gutters>
-                  <HRval></HRval>
+                  <HRval ref="hr"></HRval>
                 </v-col>
                 <v-col no-gutters>
                   <BRval></BRval>
@@ -108,4 +116,6 @@
         </v-row>
       </v-sheet>
   </v-container>
+
+  <alert ref="alert"></alert>
 </template>
