@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       Warnsrc: Warning,
-      isModalVisible: true,
+      isModalVisible: false,
     };
   },
   methods: {

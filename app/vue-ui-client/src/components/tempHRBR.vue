@@ -9,7 +9,14 @@ export default {
             msg: '',
             options: {
                 chart: {
-                    id: 'vuechart-example'
+                    id: 'vuechart-example',
+                    animations: {
+                        enabled: true,
+                        dynamicAnimation: {
+                            enabled: true,
+                            speed: 350
+                        }
+                    }
                 },
                 xaxis: {
                     categories: []
