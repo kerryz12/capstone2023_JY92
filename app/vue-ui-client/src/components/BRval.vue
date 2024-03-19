@@ -6,20 +6,29 @@ export default {
     data() {
         return {
             BRsrc: BR,
-            breath: 0
+            breathrate: 'Calibrating',
+            calibration_counter: 0,
         };
     },
     methods: {
-        getMessage() {
-            const path = 'http://localhost:5000/heartrate';
+        getBR() {
+            const path = 'http://127.0.0.1:5000/breathingrate';
             axios.get(path)
                 .then((res) => {
-                    this.breath = res.data[3];
+                    if (this.calibration_counter > 15) this.breathrate = res.data;
+                    else this.calibration_counter += 1;
                 })
                 .catch((error) => {
                     console.error(error);
                 });
         },
+        created: async function () {
+            this.getBR();
+
+            setInterval(function () {
+               this.getBR();
+            }.bind(this), 1000);
+        }
     },
 };
 </script>
@@ -36,7 +45,7 @@ export default {
                     <v-card-title class="pl-0"> Current Breathing Rate: </v-card-title>
                 </v-row>
                 <v-row>
-                    <v-card-title class="mx-auto mt-n6">{{ breath }}</v-card-title>
+                    <v-card-title class="mx-auto mt-n6">{{ breathrate }}</v-card-title>
                 </v-row>
             </v-col>
         </v-row>

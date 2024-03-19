@@ -3,7 +3,12 @@ from flask_cors import CORS
 from flask_apscheduler import APScheduler
 import socket
 import time
+import math
+import emd
+import scipy
+import numpy as np
 from random import randint
+import matplotlib.pyplot as plt
 
 MAIN_PICO = "0"
 IMU_SHOULDER_PICO = "1" # will contain BLE
@@ -45,9 +50,11 @@ s.listen()
 
 print(f"[LISTENING] Server is listening on {host}:{port}")
 
-split_data_main = ["0", "-1", "-1", "-1"]
+#indicator, hr, spo2, temp, r,
+split_data_main = ["0", "-1", "-1", "-1", "-1"]
 split_data_shoulder = ["1", "0", "0"]
 split_data_thigh = ["2", "0"]
+red_list = []
 count = 0
 
 # Routing of functions when a connection is established
@@ -101,6 +108,24 @@ def getPosition():
         return "1"
     else:
         return "0"
+    
+
+def getRespiratoryRate():
+    raw_red= getData()[4]
+    red_list.append(raw_red)
+
+    if(len(red_list)< 500):
+        print(len(red_list))
+        
+    else:
+        red_np = np.array(red_list, dtype=int)
+        red_norm = red_np -min(red_np)
+        imf = emd.sift.sift(red_norm)
+        sum_imf = sum(imf)
+        max=np.max(plt.psd(sum_imf))
+        log_red=10*math.log10(max)
+        return(log_red)
+
 
 # APP ROUTES
 @app.route('/heartrate', methods=['GET'])
@@ -114,6 +139,10 @@ def spo2():
 @app.route('/temperature', methods=['GET'])
 def temperature():
     return str(getData()[3])
+
+@app.route('/breathingrate', methods=['GET'])
+def breathingrate():
+    return str(getRespiratoryRate())
 
 @app.route('/position', methods=['GET'])
 def position():

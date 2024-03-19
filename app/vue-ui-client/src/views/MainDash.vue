@@ -11,7 +11,7 @@ import HRval from '@/components/HRval.vue';
 import BRval from '@/components/BRval.vue';
 import alert from '@/components/alerts/alert.vue';
 
-constant HR_ALERT = 150
+const HR_ALERT = 150
 
 export default {
   name: 'MainDash',
