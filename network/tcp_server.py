@@ -18,7 +18,8 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host, port = '0.0.0.0', 64000
 server_address = (host, port)
 red_list = []
-rr_start = 0
+redrr_start = 0
+respRateArray = []
 
 
 print(f'Starting TCP server on {host} port {port}')
@@ -31,20 +32,25 @@ def getData():
 def getRespiratoryRate():
     raw_red= getData()[4]
     red_list.append(raw_red)
-    global rr_start
+    global redrr_start
+    global respRateArray
 
-    if(len(red_list)< 100):
-        print(len(red_list))
-    else:
-        red_np = np.array(red_list[rr_start:], dtype=int)
+    if(len(red_list)> 100):
+        red_np = np.array(red_list, dtype=int)
         red_norm = red_np -min(red_np)
         imf = emd.sift.sift(red_norm)
         sum_imf = sum(imf)
         max=np.max(plt.psd(sum_imf))
         log_red=10*math.log10(max)
         print("RR = " + str(log_red))
-        rr_start +=1
-
+        red_list.pop(0)
+        respRateArray.append(log_red)
+        print(red_list[0])
+        '''
+        if(len(respRateArray) == 16):
+            finalRR = respRateArray/16
+            print(finalRR)
+        '''
 
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
