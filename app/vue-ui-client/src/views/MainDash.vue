@@ -11,7 +11,10 @@ import HRval from '@/components/HRval.vue';
 import BRval from '@/components/BRval.vue';
 import alert from '@/components/alerts/alert.vue';
 
-constant HR_ALERT = 150
+const HR_ALERT_THRESHOLD = 150
+const BR_ALERT_THRESHOLD = 30
+const SPO2_ALERT_THRESHOLD = 90
+const TEMP_ALERT_THRESHOLD = 40
 
 export default {
   name: 'MainDash',
@@ -32,7 +35,16 @@ export default {
     },
 
     pollAlert() {
-      if (this.$refs.hr.heartrate > HR_ALERT) {
+      if (this.$refs.hr.heartrate > HR_ALERT_THRESHOLD) {
+        this.$refs.alert.showModal();
+      }
+      else if (this.$refs.br.breath > BR_ALERT_THRESHOLD) {
+        this.$refs.alert.showModal();
+      }
+      else if (this.$refs.spo2.series[0] > SPO2_ALERT_THRESHOLD) {
+        this.$refs.alert.showModal();
+      }
+      else if (this.$refs.temperature.temperature > TEMP_ALERT_THRESHOLD) {
         this.$refs.alert.showModal();
       }
     }
@@ -67,7 +79,7 @@ export default {
                 <HRval ref="hr"></HRval>
               </v-col>
               <v-col no-gutters>
-                <BRval></BRval>
+                <BRval ref="br"></BRval>
               </v-col>
             </v-row>
           </v-container>
@@ -85,19 +97,19 @@ export default {
           <v-container class="mt-3 ml-n8">
             <v-row>
               <v-container>
-                <SpO2chart></SpO2chart>
+                <SpO2chart ref="spo2"></SpO2chart>
               </v-container>
             </v-row>
 
             <v-row>
               <v-container>
-                <Temperaturechart></Temperaturechart>
+                <Temperaturechart ref="temperature"></Temperaturechart>
               </v-container>
             </v-row>
 
             <v-row>
               <v-container>
-                <Location></Location>
+                <Location ref="location"></Location>
               </v-container>
             </v-row>
           </v-container>
@@ -108,12 +120,12 @@ export default {
           <v-container class="mt-3 ml-n4">
             <v-row>
               <v-container>
-                <BodyPosition></BodyPosition>
+                <BodyPosition ref="position"></BodyPosition>
               </v-container>
             </v-row>
             <v-row>
               <v-container>
-                <BodyDynamics></BodyDynamics>
+                <BodyDynamics ref="dynamics"></BodyDynamics>
               </v-container>
             </v-row>
           </v-container>
