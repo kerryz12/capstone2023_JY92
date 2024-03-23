@@ -10,17 +10,24 @@ export default {
         };
     },
     methods: {
-        getMessage() {
-            const path = 'http://localhost:5000/heartrate';
+        getBR() {
+            const path = 'http://127.0.0.1:5000/br';
             axios.get(path)
                 .then((res) => {
-                    this.breath = res.data[3];
+                    this.breath = parseInt(res.data);
                 })
                 .catch((error) => {
                     console.error(error);
                 });
         },
     },
+    created: async function () {
+        this.getBR();
+
+        setInterval(function () {
+            this.getBR();
+        }.bind(this), 1000);
+    }
 };
 </script>
 
