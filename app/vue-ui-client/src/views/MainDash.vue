@@ -52,9 +52,9 @@ export default {
   created() {
     this.getMessage();
 
-    setInterval(function () {
+    /*setInterval(function () {
       this.pollAlert();
-    }.bind(this), 1000);
+    }.bind(this), 1000);*/
   },
   components: {
     SpO2chart, tempHRBR, HRandBRchart, Temperaturechart,

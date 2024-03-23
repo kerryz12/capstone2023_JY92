@@ -4,7 +4,7 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            temperature: 50,
+            temperature: 37,
         }
     },
     methods: {

@@ -6,7 +6,7 @@ export default {
     data() {
         return {
             HRsrc: HR,
-            heartrate: 'Calibrating',
+            heartrate: '75',
             calibration_counter: 0,
         };
     },

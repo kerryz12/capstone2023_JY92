@@ -54,7 +54,7 @@ s.listen()
 
 print(f"[LISTENING] Server is listening on {host}:{port}")
 
-split_data_main = ["0", "-1", "-1", "-1"]
+split_data_main = ["0", "-1", "-1", "-1", "-1"]
 split_data_shoulder = ["1", "0", "0"]
 split_data_thigh = ["2", "0"]
 count = 0
@@ -71,7 +71,7 @@ def handle_client(conn, addr):
         return
     decoded_data = data.decode('ascii')
 
-    print(decoded_data.split())    
+    print(decoded_data.split())
     if (decoded_data.split()[0] == MAIN_PICO):
         split_data_main = decoded_data.split()
     elif (decoded_data.split()[0] == IMU_SHOULDER_PICO):

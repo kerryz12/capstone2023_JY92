@@ -6,7 +6,7 @@ export default {
     data() {
         return {
             BRsrc: BR,
-            breath: 0
+            breath: 10
         };
     },
     methods: {

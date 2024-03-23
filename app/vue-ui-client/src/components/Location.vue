@@ -22,7 +22,7 @@ export default {
       if (this.room_val == "1") this.room_string = "Room 1";
       else if (this.room_val == "2") this.room_string = "Room 2";
       else if (this.room_val == "3") this.room_string = "Hallway";
-      else this.room_string = "Unknown";
+      else this.room_string = "Bathroom";
     },
   },
   created: async function () {
