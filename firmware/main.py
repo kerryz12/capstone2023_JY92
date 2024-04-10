@@ -12,6 +12,9 @@ SCL_PIN = 9
 # how many samples to keep to take average of for SPO2 calculation
 SPO2_AVERAGE_SAMPLES = 32
 
+# buzzer
+buzzer = Pin(17, Pin.OUT)
+
 # Create I2C object
 i2c = SoftI2C(sda=Pin(SDA_PIN), scl=Pin(SCL_PIN), freq=400000)
 i2c.scan()
@@ -68,4 +71,5 @@ while(True):
         current_time = time.ticks_ms() - start_time
         print(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
         network_obj.sendTCPPacket("0 " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + " " + str(red) + " ")
+        
         time.sleep_ms(10)

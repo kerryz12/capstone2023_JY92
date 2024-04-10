@@ -13,6 +13,15 @@ POS_LYING = 1
 POS_SITTING = 2
 POS_STANDING = 3
 
+DYNAMIC_STILL = "0"
+DYNAMIC_SHAKING = "1"
+DYNAMIC_FALLING = "2"
+
+# global variables used by windows
+WINDOW_SIZE = 10  # make windows every 10 times 
+TRIGGER_RATIO_SHAKING = 0.5  # trigger ratio for shaking
+shaking_window = [0] * WINDOW_SIZE  # initial windows, 0 represents there is no shaking detected, 1 represents there is a shaking detected
+
 # UART configuration for Pico W
 # This part of the code initializes the Raspberry
 # Pi Pico W's UART0 interface, sets the baud rate to 9600, and specifies the UART's TX (transmit) and RX (receive) pins as GPIO 12 and GPIO 13, respectively.
@@ -349,6 +358,61 @@ def get_angle(datahex):
         angle_z -= 2 * k_angle
     return angle_x, angle_y, angle_z
 
+def detect_falling(acc_data, threshold=4.0):
+    """
+    Detects falling based on sudden changes in acceleration.
+    :param acc_data: List of acceleration data [ax, ay, az]
+    :param threshold: Threshold value for detecting twitching
+    :return: True if twitching is detected, False otherwise
+    """
+    # Calculate the magnitude of acceleration
+    acc_magnitude = (acc_data[0] ** 2 + acc_data[1] ** 2 + acc_data[2] ** 2) ** 0.5
+    
+    # Check if acceleration exceeds the threshold
+    if acc_magnitude > threshold:
+        return True
+    return False
+
+def update_shaking_detection(is_shaking_detected):
+    """
+    Updates shaking detection based on a sliding window mechanism.
+    :param is_shaking_detected (bool): Whether twitching was detected in the current observation.
+
+    Prints "Shaking detected" if the ratio of twitching detections within the window exceeds 50%.
+    """
+    global shaking_window 
+    
+    # update the windows
+    shaking_window.pop(0)  # remove the old detect result 
+    shaking_window.append(1 if is_shaking_detected else 0)  # add the new detect result
+    
+    # calculate the ratio of shaking in the window
+    shaking_ratio = sum(shaking_window) / WINDOW_SIZE
+    
+    # if the ratio is over threhold, print shaking
+    if shaking_ratio > TRIGGER_RATIO_SHAKING:
+        print("Shacking detected")
+        return True
+    return False
+
+def detect_shaking(acc_data, threshold=1.0):
+    """
+    Detects shaking based on sudden changes in acceleration.
+    :param acc_data: List of acceleration data [ax, ay, az]
+    :param threshold: Threshold value for detecting shaking
+    :return: True if shaking is detected, False otherwise
+    """
+    # Calculate the magnitude of acceleration
+    acc_magnitude = (acc_data[0] ** 2 + acc_data[1] ** 2 + acc_data[2] ** 2) ** 0.5
+    
+    # Check if acceleration exceeds the threshold
+    if acc_magnitude > threshold:
+        is_shaking_detected = True 
+    else:
+        is_shaking_detected = False
+        
+    return update_shaking_detection(is_shaking_detected)
+
 def main():
     global current_room
     print("Serial is Opened:", uart.any())
@@ -366,37 +430,49 @@ def main():
                 # Get the current angles
                 current_angles = get_angle(AngleData)
                 angle_x, angle_y, angle_z = current_angles
+                current_accs = get_acc(ACCData)
+                acc_x, acc_y, acc_z = current_accs
+                
+                # body dynamics
+                # check for shaking
+                if detect_shaking(current_accs):
+                    dynamic = DYNAMIC_SHAKING
+                # check for falling
+                elif detect_falling(current_accs):
+                    dynamic = DYNAMIC_FALLING
+                else:
+                    dynamic = DYNAMIC_STILL
                 
                 # Check the nromal lying condition ( face up)
                 if -40 <= angle_y <= 0 :
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " " + dynamic + " ")
                     print("lying")
                     
                 #Check the normal lying but with tilting (face up)
                 elif -110 <= angle_x <= -60 and -60 <= angle_y <= 40:
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " " + dynamic + " ")
                     print("lying")
                     
                 #Check the lying on the left side
                 elif 120 <= angle_x <= 170 and -80 <= angle_y < -30:
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " " + dynamic + " ")
                     print("lying")
                     
                 #Check the lying on the right side
                 elif -125 <= angle_x <= -70 and 0 <= angle_y <= 70 :
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " " + dynamic + " ")
                     print("lying")
                     
                 elif -180 <= angle_x <= -90 and -85 <= angle_y < -40 :
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " " + dynamic + " ")
                     print("lying")
                     
                 elif 100 <= angle_x <= 180 and -85 <= angle_y < -50 :
-                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " ")
+                    network_obj.sendTCPPacket("1 " + str(POS_LYING) + " " + str(current_room) + " " + dynamic + " ")
                     print("lying")
                     
                 else:
-                    network_obj.sendTCPPacket("1 " + str(POS_NONE) + " " + str(current_room) + " ")
+                    network_obj.sendTCPPacket("1 " + str(POS_NONE) + " " + str(current_room) + " " + dynamic + " ")
                     print("not lying")
 
         utime.sleep_ms(200)  # Delay to prevent reading too quickly

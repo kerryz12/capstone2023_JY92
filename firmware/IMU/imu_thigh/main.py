@@ -7,8 +7,6 @@ POS_LYING = 1
 POS_SITTING = 2
 POS_STANDING = 3
 
-AGITATED_THRESHOLD = 100
-
 # UART configuration for Pico W
 # This part of the code initializes the Raspberry
 # Pi Pico W's UART0 interface, sets the baud rate to 9600, and specifies the UART's TX (transmit) and RX (receive) pins as GPIO 12 and GPIO 13, respectively.
@@ -37,7 +35,8 @@ w = [0.0] * 3
 Angle = [0.0] * 3
 
 # 0: stationary
-# 1: agitated
+# 1: shaking
+# 2: falling
 dynamic = "0"
 
 # DueData function processes the received data
@@ -176,14 +175,9 @@ def main():
             if datahex and len(datahex) == 33:
                 DueData(datahex)  # No need to convert to list if DueData can handle bytes
                 # Get the current angles
-                angle_x, angle_y, angle_z = get_angle(AngleData)
-                acc_x, acc_y, acc_z = get_acc(ACCData)
-                
-                if (acc_x > AGITATED_THRESHOLD and acc_y > AGITATED_THRESHOLD):
-                    dynamic = "1"
-                else:
-                    dynamic = "0"
-                
+                current_angles = get_angle(AngleData)
+                angle_x, angle_y, angle_z = current_angles
+                        
                 # Check the first condition
                 if -10 <= angle_x <= 30 and -40 <= angle_y <= 15:
                     network_obj.sendTCPPacket("2 " + str(POS_SITTING) + " " + dynamic + " ")
