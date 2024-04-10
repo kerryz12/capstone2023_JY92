@@ -7,6 +7,8 @@ POS_LYING = 1
 POS_SITTING = 2
 POS_STANDING = 3
 
+AGITATED_THRESHOLD = 100
+
 # UART configuration for Pico W
 # This part of the code initializes the Raspberry
 # Pi Pico W's UART0 interface, sets the baud rate to 9600, and specifies the UART's TX (transmit) and RX (receive) pins as GPIO 12 and GPIO 13, respectively.
@@ -33,6 +35,10 @@ CheckSum = 0  # Checksum
 a = [0.0] * 3
 w = [0.0] * 3
 Angle = [0.0] * 3
+
+# 0: stationary
+# 1: agitated
+dynamic = "0"
 
 # DueData function processes the received data
 def DueData(inputdata):  # New core procedures, read the data partition, each read to the corresponding array 
@@ -170,24 +176,29 @@ def main():
             if datahex and len(datahex) == 33:
                 DueData(datahex)  # No need to convert to list if DueData can handle bytes
                 # Get the current angles
-                current_angles = get_angle(AngleData)
-                angle_x, angle_y, angle_z = current_angles
+                angle_x, angle_y, angle_z = get_angle(AngleData)
+                acc_x, acc_y, acc_z = get_acc(ACCData)
+                
+                if (acc_x > AGITATED_THRESHOLD and acc_y > AGITATED_THRESHOLD):
+                    dynamic = "1"
+                else:
+                    dynamic = "0"
                 
                 # Check the first condition
                 if -10 <= angle_x <= 30 and -40 <= angle_y <= 15:
-                    network_obj.sendTCPPacket("2 " + str(POS_SITTING) + " ")
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING) + " " + dynamic + " ")
                     print("Sitting")
                 # Check the sitting condition if the patient crossing legs   
                 elif -5 <= angle_x <= 40 and 0 <= angle_y <= 45:
-                    network_obj.sendTCPPacket("2 " + str(POS_SITTING) + " ")
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING) + " " + dynamic + " ")
                     print("Sitting")
                 # Check the sitting condition if the patient spreading legs   
                 elif 5 <= angle_x <= 20 and -50 <= angle_y <= -10:
-                    network_obj.sendTCPPacket("2 " + str(POS_SITTING) + " ")
+                    network_obj.sendTCPPacket("2 " + str(POS_SITTING) + " " + dynamic + " ")
                     print("Sitting")
                 # Check the second condition
                 elif -190 <= angle_x <= -110 :
-                    network_obj.sendTCPPacket("2 " + str(POS_STANDING) + " ")
+                    network_obj.sendTCPPacket("2 " + str(POS_STANDING) + " " + dynamic + " ")
                     print("Standing")
         
         utime.sleep_ms(200)  # Delay to prevent reading too quickly

@@ -15,8 +15,9 @@ export default {
             const path = 'http://127.0.0.1:5000/heartrate';
             axios.get(path)
                 .then((res) => {
-                    if (this.calibration_counter > 4) this.heartrate = res.data;
-                    else this.calibration_counter += 1;
+                    //if (this.calibration_counter > 4) this.heartrate = res.data;
+                    //else this.calibration_counter += 1;
+                    this.heartrate = Math.round(parseFloat(res.data));
                 })
                 .catch((error) => {
                     console.error(error);

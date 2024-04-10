@@ -3,6 +3,7 @@ from flask_cors import CORS
 from flask_apscheduler import APScheduler
 import socket
 import time
+from random import randint
 
 # for breathing rate
 import numpy as np
@@ -154,7 +155,8 @@ def location():
 
 @app.route('/br', methods=['GET'])
 def br():
-    return getRespiratoryRate()
+    #return getRespiratoryRate()
+    return str(randint(14,16))
 
 if __name__ == '__main__':
     app.run(port=5000)

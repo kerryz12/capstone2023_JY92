@@ -12,7 +12,7 @@ export default {
             const path = 'http://127.0.0.1:5000/temperature';
             axios.get(path)
                 .then((res) => {
-                    this.temperature = res.data;
+                    this.temperature = Math.round(parseFloat(res.data));
                 })
                 .catch((error) => {
                     console.error(error);

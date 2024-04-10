@@ -3,7 +3,7 @@ export default {
   data() {
     return {
       dynamic: ["stationary", "walking", "agitated"],
-      state: "Stationary",
+      state: "Unknown",
       dyn_val: 0,
     };
   },

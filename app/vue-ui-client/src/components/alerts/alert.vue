@@ -5,11 +5,13 @@ export default {
   data() {
     return {
       Warnsrc: Warning,
-      isModalVisible: false,
+      isModalVisible: true,
+      reason: "Unknown",
     };
   },
   methods: {
-    showModal() {
+    showModal(reason) {
+      this.reason = reason;
       this.isModalVisible = true;
     }
   }
@@ -25,7 +27,7 @@ export default {
         <v-card-title class="text-center"> Please check on patient!</v-card-title>
         <v-sheet width=400>
           <p class="text-body-1 text-center"> The wearable health status monitoring system
-            has detected that the patient is in distress.</p>
+            has detected that the patient is in distress. <br/> Reason: {{ this.reason }}</p>
         </v-sheet>
         <v-btn style="float: right;" variant="text" @click="isModalVisible = false" class="text-button"
           color="red-lighten-1">OK</v-btn>
