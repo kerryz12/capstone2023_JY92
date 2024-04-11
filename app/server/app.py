@@ -10,9 +10,19 @@ import numpy as np
 from random import randint
 import matplotlib.pyplot as plt
 
+# for breathing rate
+import numpy as np
+import emd
+import matplotlib.pyplot as plt
+import math
+
 MAIN_PICO = "0"
 IMU_SHOULDER_PICO = "1" # will contain BLE
 IMU_THIGH_PICO = "2"
+
+red_list = []
+respRateArray = []
+redrr_start = 0
 
 # set configuration values
 class Config:
@@ -50,9 +60,8 @@ s.listen()
 
 print(f"[LISTENING] Server is listening on {host}:{port}")
 
-#indicator, hr, spo2, temp, r,
 split_data_main = ["0", "-1", "-1", "-1", "-1"]
-split_data_shoulder = ["1", "0", "0"]
+split_data_shoulder = ["1", "0", "0", "0"]
 split_data_thigh = ["2", "0"]
 red_list = []
 count = 0
@@ -64,12 +73,11 @@ def handle_client(conn, addr):
     global split_data_thigh
     
     data = conn.recv(512)
-    print("Connected")
     if not data:
         return
     decoded_data = data.decode('ascii')
 
-    print(decoded_data.split())    
+    print(decoded_data.split())
     if (decoded_data.split()[0] == MAIN_PICO):
         split_data_main = decoded_data.split()
     elif (decoded_data.split()[0] == IMU_SHOULDER_PICO):
@@ -108,24 +116,26 @@ def getPosition():
         return "1"
     else:
         return "0"
-    
 
 def getRespiratoryRate():
-    raw_red= getData()[4]
+    raw_red = getData()[4]
+    global red_list
+    global redrr_start
+    global respRateArray
+    
     red_list.append(raw_red)
 
-    if(len(red_list)< 500):
-        print(len(red_list))
-        
-    else:
+    if(len(red_list) > 100):
         red_np = np.array(red_list, dtype=int)
-        red_norm = red_np -min(red_np)
+        red_norm = red_np - min(red_np)
         imf = emd.sift.sift(red_norm)
         sum_imf = sum(imf)
-        max=np.max(plt.psd(sum_imf))
-        log_red=10*math.log10(max)
-        return(log_red)
-
+        max = np.max(plt.psd(sum_imf))
+        log_red = 10*math.log10(max)
+        red_list.pop(0)
+        respRateArray.append(log_red)
+        
+        return red_list[0]
 
 # APP ROUTES
 @app.route('/heartrate', methods=['GET'])
@@ -146,11 +156,21 @@ def breathingrate():
 
 @app.route('/position', methods=['GET'])
 def position():
-    return getPosition()
+    return "Atrium"
+    #return getPosition()
 
 @app.route('/location', methods=['GET'])
 def location():
     return split_data_shoulder[2]
+
+@app.route('/br', methods=['GET'])
+def br():
+    #return getRespiratoryRate()
+    return str(randint(12,16))
+
+@app.route('/dynamic', methods=['GET'])
+def dynamic():
+    return split_data_shoulder[3]
 
 if __name__ == '__main__':
     app.run(port=5000)

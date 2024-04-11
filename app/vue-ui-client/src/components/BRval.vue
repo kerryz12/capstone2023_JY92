@@ -6,30 +6,28 @@ export default {
     data() {
         return {
             BRsrc: BR,
-            breathrate: 'Calibrating',
-            calibration_counter: 0,
+            breath: 10
         };
     },
     methods: {
         getBR() {
-            const path = 'http://127.0.0.1:5000/breathingrate';
+            const path = 'http://127.0.0.1:5000/br';
             axios.get(path)
                 .then((res) => {
-                    if (this.calibration_counter > 15) this.breathrate = res.data;
-                    else this.calibration_counter += 1;
+                    this.breath = parseInt(res.data);
                 })
                 .catch((error) => {
                     console.error(error);
                 });
         },
-        created: async function () {
-            this.getBR();
-
-            setInterval(function () {
-               this.getBR();
-            }.bind(this), 1000);
-        }
     },
+    created: async function () {
+        this.getBR();
+
+        setInterval(function () {
+            this.getBR();
+        }.bind(this), 1000);
+    }
 };
 </script>
 

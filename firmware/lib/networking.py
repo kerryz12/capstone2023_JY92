@@ -10,7 +10,6 @@ class Networking(object):
         self.password = 'a1cwy4vqty1vy'
         self.led = Pin("LED", Pin.OUT)
 
-
     def connect(self):
         self.wlan = network.WLAN(network.STA_IF)
         self.wlan.active(True)

@@ -9,12 +9,12 @@ export default {
             msg: '',
             options: {
                 chart: {
-                    id: 'vuechart-example',
+                    id: 'realtime',
                     animations: {
                         enabled: true,
                         dynamicAnimation: {
                             enabled: true,
-                            speed: 350
+                            speed: 100
                         }
                     }
                 },
@@ -58,7 +58,7 @@ export default {
 
 <template>
     <v-card max-width=600 class="mt-n3 mx-3 mb-3">
-        <v-card-title class="text-center"> Heart Rate and Breathing Rate Chart</v-card-title>
+        <v-card-title class="text-center"> Heart Rate Chart</v-card-title>
         <apexchart width="600" type="line" :options="options" :series="series"></apexchart>
     </v-card>
 </template>

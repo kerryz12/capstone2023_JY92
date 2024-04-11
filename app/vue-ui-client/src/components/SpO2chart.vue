@@ -4,7 +4,7 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            series: [0],
+            series: [98],
             chartOptions: {
                 chart: {
                     height: 300,
@@ -39,8 +39,8 @@ export default {
             const path = 'http://127.0.0.1:5000/spo2';
             axios.get(path)
                 .then((res) => {
-                    this.series[0] = res.data;
-                    this.chartOptions.plotOptions.radialBar.hollow.size = res.data;
+                    this.series[0] = Math.round(parseInt(res.data));
+                    this.chartOptions.plotOptions.radialBar.hollow.size = Math.round(parseInt(res.data));
                 })
                 .catch((error) => {
                     console.error(error);
