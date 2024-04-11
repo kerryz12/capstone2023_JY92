@@ -358,13 +358,13 @@ def get_angle(datahex):
         angle_z -= 2 * k_angle
     return angle_x, angle_y, angle_z
 
+"""
+Detects falling based on sudden changes in acceleration.
+:param acc_data: List of acceleration data [ax, ay, az]
+:param threshold: Threshold value for detecting twitching
+:return: True if twitching is detected, False otherwise
+"""
 def detect_falling(acc_data, threshold=4.0):
-    """
-    Detects falling based on sudden changes in acceleration.
-    :param acc_data: List of acceleration data [ax, ay, az]
-    :param threshold: Threshold value for detecting twitching
-    :return: True if twitching is detected, False otherwise
-    """
     # Calculate the magnitude of acceleration
     acc_magnitude = (acc_data[0] ** 2 + acc_data[1] ** 2 + acc_data[2] ** 2) ** 0.5
     
@@ -373,13 +373,13 @@ def detect_falling(acc_data, threshold=4.0):
         return True
     return False
 
-def update_shaking_detection(is_shaking_detected):
-    """
-    Updates shaking detection based on a sliding window mechanism.
-    :param is_shaking_detected (bool): Whether twitching was detected in the current observation.
+"""
+Updates shaking detection based on a sliding window mechanism.
+:param is_shaking_detected (bool): Whether twitching was detected in the current observation.
 
-    Prints "Shaking detected" if the ratio of twitching detections within the window exceeds 50%.
-    """
+Prints "Shaking detected" if the ratio of twitching detections within the window exceeds 50%.
+"""
+def update_shaking_detection(is_shaking_detected):
     global shaking_window 
     
     # update the windows
@@ -395,13 +395,13 @@ def update_shaking_detection(is_shaking_detected):
         return True
     return False
 
+"""
+Detects shaking based on sudden changes in acceleration.
+:param acc_data: List of acceleration data [ax, ay, az]
+:param threshold: Threshold value for detecting shaking
+:return: True if shaking is detected, False otherwise
+"""
 def detect_shaking(acc_data, threshold=1.0):
-    """
-    Detects shaking based on sudden changes in acceleration.
-    :param acc_data: List of acceleration data [ax, ay, az]
-    :param threshold: Threshold value for detecting shaking
-    :return: True if shaking is detected, False otherwise
-    """
     # Calculate the magnitude of acceleration
     acc_magnitude = (acc_data[0] ** 2 + acc_data[1] ** 2 + acc_data[2] ** 2) ** 0.5
     

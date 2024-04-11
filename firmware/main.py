@@ -5,6 +5,16 @@ from lib.spo2_algorithm import *
 from lib.networking import *
 from utime import sleep_ms
 
+HR_ALERT_THRESHOLD_UPPER = 150
+BR_ALERT_THRESHOLD_UPPER = 24
+SPO2_ALERT_THRESHOLD_UPPER = 105
+TEMP_ALERT_THRESHOLD_UPPER = 40
+ 
+HR_ALERT_THRESHOLD_LOWER = 30
+BR_ALERT_THRESHOLD_LOWER = 6
+SPO2_ALERT_THRESHOLD_LOWER = 90
+TEMP_ALERT_THRESHOLD_LOWER = 34
+
 # pin values
 SDA_PIN = 8
 SCL_PIN = 9
@@ -71,5 +81,14 @@ while(True):
         current_time = time.ticks_ms() - start_time
         print(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
         network_obj.sendTCPPacket("0 " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + " " + str(red) + " ")
+        
+        if (average_heartbeat > HR_ALERT_THRESHOLD_UPPER or average_heartbeat < HR_ALERT_THRESHOLD_LOWER or \
+        average_spo2 > SPO2_ALERT_THRESHOLD_UPPER or average_spo2 < SPO2_ALERT_THRESHOLD_LOWER or \
+        temperature > TEMP_ALERT_THRESHOLD_UPPER or temperature < TEMP_ALERT_THRESHOLD_LOWER and count < 250):
+            buzzer.value(1)
+            time.sleep_ms(125)
+            buzzer.value(0)
+            time.sleep_ms(125)
+            count += 1
         
         time.sleep_ms(10)
