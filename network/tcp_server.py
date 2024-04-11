@@ -45,7 +45,7 @@ def getRespiratoryRate():
         print("RR = " + str(log_red))
         red_list.pop(0)
         respRateArray.append(log_red)
-        print(red_list[0])
+        print(respRateArray[0])
         '''
         if(len(respRateArray) == 16):
             finalRR = respRateArray/16
