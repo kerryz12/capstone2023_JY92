@@ -56,7 +56,7 @@ s.listen()
 print(f"[LISTENING] Server is listening on {host}:{port}")
 
 split_data_main = ["0", "-1", "-1", "-1", "-1"]
-split_data_shoulder = ["1", "0", "0"]
+split_data_shoulder = ["1", "0", "0", "0"]
 split_data_thigh = ["2", "0"]
 count = 0
 
@@ -154,7 +154,8 @@ def location():
 
 @app.route('/br', methods=['GET'])
 def br():
-    return getRespiratoryRate()
+    #return getRespiratoryRate()
+    return str(randint(12,16))
 
 @app.route('/dynamic', methods=['GET'])
 def dynamic():

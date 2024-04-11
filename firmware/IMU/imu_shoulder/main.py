@@ -384,7 +384,7 @@ def update_shaking_detection(is_shaking_detected):
     global shaking_or_not
     
     # update the windows
-    if (shaking_window.length < WINDOW_SIZE):
+    if (len(shaking_window) < WINDOW_SIZE):
         shaking_window.append(1 if is_shaking_detected else 0)  # add the new detect result
 
     else:
