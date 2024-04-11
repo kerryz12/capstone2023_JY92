@@ -59,7 +59,7 @@ export default {
 
         setInterval(function () {
             this.pollAlert();
-        }.bind(this), 5000);
+        }.bind(this), 10000);
     },
     components: {
         SpO2chart, tempHRBR, HRandBRchart, Temperaturechart,

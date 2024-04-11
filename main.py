@@ -143,7 +143,7 @@ def get_gyro(datahex):
         gyro_z -= 2 * k_gyro
     return gyro_x, gyro_y, gyro_z
 
-
+z
 def get_angle(datahex):
     rxl = datahex[0]
     rxh = datahex[1]

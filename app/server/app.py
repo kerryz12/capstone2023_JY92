@@ -146,7 +146,8 @@ def temperature():
 
 @app.route('/position', methods=['GET'])
 def position():
-    return getPosition()
+    return "Atrium"
+    #return getPosition()
 
 @app.route('/location', methods=['GET'])
 def location():
