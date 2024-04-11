@@ -67,7 +67,6 @@ def handle_client(conn, addr):
     global split_data_thigh
     
     data = conn.recv(512)
-    print("Connected")
     if not data:
         return
     decoded_data = data.decode('ascii')
@@ -157,8 +156,8 @@ def location():
 def br():
     return getRespiratoryRate()
 
-@app.route('dynamic', methods=['GET'])
-def dyanmic():
+@app.route('/dynamic', methods=['GET'])
+def dynamic():
     return split_data_shoulder[3]
 
 if __name__ == '__main__':
