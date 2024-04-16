@@ -11,7 +11,7 @@ export default {
     },
     methods: {
         getBR() {
-            const path = 'http://127.0.0.1:5000/br';
+            const path = 'http://127.0.0.1:5000/breathingrate';
             axios.get(path)
                 .then((res) => {
                     this.breath = parseInt(res.data);
