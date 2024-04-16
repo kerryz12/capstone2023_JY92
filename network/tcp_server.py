@@ -42,10 +42,9 @@ def getRespiratoryRate():
         sum_imf = sum(imf)
         max=np.max(plt.psd(sum_imf))
         log_red=10*math.log10(max)
-        print("RR = " + str(log_red))
+        print("RR = " + str(log_red*0.2))
         red_list.pop(0)
         respRateArray.append(log_red)
-        print(respRateArray[0])
         '''
         if(len(respRateArray) == 16):
             finalRR = respRateArray/16

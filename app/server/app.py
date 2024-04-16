@@ -125,17 +125,26 @@ def getRespiratoryRate():
     
     red_list.append(raw_red)
 
-    if(len(red_list) > 100):
+    if(len(red_list) > 48):
         red_np = np.array(red_list, dtype=int)
         red_norm = red_np - min(red_np)
         imf = emd.sift.sift(red_norm)
         sum_imf = sum(imf)
         max = np.max(plt.psd(sum_imf))
         log_red = 10*math.log10(max)
+
+        print("RR = " + str(log_red))
         red_list.pop(0)
-        respRateArray.append(log_red)
+
+        if (len(respRateArray) <16):
+            respRateArray.append(log_red)
+        else:
+            respRateArray.pop(0)
+            respRateArray.append(log_red)
         
-        return red_list[0]
+        finalbr = sum(respRateArray)/16
+        
+        return finalbr
 
 # APP ROUTES
 @app.route('/heartrate', methods=['GET'])

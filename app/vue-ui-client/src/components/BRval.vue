@@ -11,7 +11,7 @@ export default {
     },
     methods: {
         getBR() {
-            const path = 'http://127.0.0.1:5000/br';
+            const path = 'http://127.0.0.1:5000/breathingrate';
             axios.get(path)
                 .then((res) => {
                     this.breath = parseInt(res.data);
@@ -43,7 +43,7 @@ export default {
                     <v-card-title class="pl-0"> Current Breathing Rate: </v-card-title>
                 </v-row>
                 <v-row>
-                    <v-card-title class="mx-auto mt-n6">{{ breathrate }}</v-card-title>
+                    <v-card-title class="mx-auto mt-n6">{{ breath }}</v-card-title>
                 </v-row>
             </v-col>
         </v-row>
