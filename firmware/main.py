@@ -4,6 +4,7 @@ from lib.hr_algorithm import *
 from lib.spo2_algorithm import *
 from lib.networking import *
 from utime import sleep_ms
+from time import sleep
 
 HR_ALERT_THRESHOLD_UPPER = 150
 BR_ALERT_THRESHOLD_UPPER = 24
@@ -78,17 +79,20 @@ while(True):
         temperature = sensor.read_temperature() + 7
 
         # send the data to the TCP server
-        current_time = time.ticks_ms() - start_time
-        print(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
-        network_obj.sendTCPPacket("0 " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + " " + str(red) + " ")
-        
+        if (count % 10 == 0):
+            current_time = time.ticks_ms() - start_time
+            print(str(current_time) + " " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature))
+            network_obj.sendTCPPacket("0 " + str(average_heartbeat) + " " + str(average_spo2) + " " + str(temperature) + " " + str(red) + " ")
+        else:
+            count += 1
+                
         if (average_heartbeat > HR_ALERT_THRESHOLD_UPPER or average_heartbeat < HR_ALERT_THRESHOLD_LOWER or \
         average_spo2 > SPO2_ALERT_THRESHOLD_UPPER or average_spo2 < SPO2_ALERT_THRESHOLD_LOWER or \
         temperature > TEMP_ALERT_THRESHOLD_UPPER or temperature < TEMP_ALERT_THRESHOLD_LOWER and count < 250):
             buzzer.value(1)
-            time.sleep_ms(125)
+            time.sleep(0.000125)
             buzzer.value(0)
-            time.sleep_ms(125)
+            time.sleep(0.000125)
             count += 1
-        
+
         time.sleep_ms(10)
