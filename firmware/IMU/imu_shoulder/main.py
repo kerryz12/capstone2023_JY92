@@ -20,7 +20,7 @@ DYNAMIC_FALLING = "2"
 # global variables used by windows
 WINDOW_SIZE = 10  # make windows every 10 times 
 TRIGGER_RATIO_SHAKING = 0.5  # trigger ratio for shaking
-shaking_window = [0] * WINDOW_SIZE  # initial windows, 0 represents there is no shaking detected, 1 represents there is a shaking detected
+shaking_window = []  # initial windows, 0 represents there is no shaking detected, 1 represents there is a shaking detected
 
 # UART configuration for Pico W
 # This part of the code initializes the Raspberry
@@ -28,7 +28,7 @@ shaking_window = [0] * WINDOW_SIZE  # initial windows, 0 represents there is no 
 uart = machine.UART(0, baudrate=9600, tx=machine.Pin(12), rx=machine.Pin(13))
 
 # set up wifi and TCP communication protocols
-host, port = '192.168.137.1', 64000
+host, port = '172.20.10.2', 64000
 server_address = (host, port)
 
 network_obj = Networking()
@@ -36,6 +36,7 @@ network_obj.connect()
 network_obj.createTCPSocket(server_address)
 
 current_room = 1
+shaking_or_not = False
 
 #Localization states
 _IRQ_CENTRAL_CONNECT = const(1)
@@ -286,8 +287,7 @@ def DueData(inputdata):  # New core procedures, read the data partition, each re
                     Angle = get_angle(AngleData)
                     result = acc+gyro+Angle
                     #network_obj.sendTCPPacket("acc:%10.3f %10.3f %10.3f \ngyro:%10.3f %10.3f %10.3f \nangle:%10.3f %10.3f %10.3f" % result)
-                    print(
-                        "acc:%10.3f %10.3f %10.3f \ngyro:%10.3f %10.3f %10.3f \nangle:%10.3f %10.3f %10.3f" % result)
+                    #print("acc:%10.3f %10.3f %10.3f \ngyro:%10.3f %10.3f %10.3f \nangle:%10.3f %10.3f %10.3f" % result)
                 CheckSum = 0
                 Bytenum = 0
                 FrameState = 0
@@ -380,20 +380,26 @@ Updates shaking detection based on a sliding window mechanism.
 Prints "Shaking detected" if the ratio of twitching detections within the window exceeds 50%.
 """
 def update_shaking_detection(is_shaking_detected):
-    global shaking_window 
+    global shaking_window
+    global shaking_or_not
     
     # update the windows
-    shaking_window.pop(0)  # remove the old detect result 
-    shaking_window.append(1 if is_shaking_detected else 0)  # add the new detect result
-    
-    # calculate the ratio of shaking in the window
-    shaking_ratio = sum(shaking_window) / WINDOW_SIZE
-    
-    # if the ratio is over threhold, print shaking
-    if shaking_ratio > TRIGGER_RATIO_SHAKING:
-        print("Shacking detected")
-        return True
-    return False
+    if (len(shaking_window) < WINDOW_SIZE):
+        shaking_window.append(1 if is_shaking_detected else 0)  # add the new detect result
+
+    else:
+        # calculate the ratio of shaking in the window
+        shaking_ratio = sum(shaking_window) / WINDOW_SIZE
+        shaking_window = []
+        
+        # if the ratio is over threhold, print shaking
+        if shaking_ratio > TRIGGER_RATIO_SHAKING:
+            print("Shacking detected")
+            shaking_or_not = True
+        else:
+            shaking_or_not = False
+            
+    return shaking_or_not
 
 """
 Detects shaking based on sudden changes in acceleration.
@@ -442,6 +448,7 @@ def main():
                     dynamic = DYNAMIC_FALLING
                 else:
                     dynamic = DYNAMIC_STILL
+                print("Dynamic: " + dynamic)
                 
                 # Check the nromal lying condition ( face up)
                 if -40 <= angle_y <= 0 :
@@ -480,6 +487,3 @@ def main():
 # Main execution
 if __name__ == '__main__':
     main()  # Call the main function
-   
-
-

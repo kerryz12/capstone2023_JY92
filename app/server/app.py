@@ -3,7 +3,12 @@ from flask_cors import CORS
 from flask_apscheduler import APScheduler
 import socket
 import time
+import math
+import emd
+import scipy
+import numpy as np
 from random import randint
+import matplotlib.pyplot as plt
 
 # for breathing rate
 import numpy as np
@@ -56,8 +61,9 @@ s.listen()
 print(f"[LISTENING] Server is listening on {host}:{port}")
 
 split_data_main = ["0", "-1", "-1", "-1", "-1"]
-split_data_shoulder = ["1", "0", "0"]
+split_data_shoulder = ["1", "0", "0", "0"]
 split_data_thigh = ["2", "0"]
+red_list = []
 count = 0
 
 # Routing of functions when a connection is established
@@ -67,7 +73,6 @@ def handle_client(conn, addr):
     global split_data_thigh
     
     data = conn.recv(512)
-    print("Connected")
     if not data:
         return
     decoded_data = data.decode('ascii')
@@ -120,17 +125,26 @@ def getRespiratoryRate():
     
     red_list.append(raw_red)
 
-    if(len(red_list) > 100):
+    if(len(red_list) > 48):
         red_np = np.array(red_list, dtype=int)
         red_norm = red_np - min(red_np)
         imf = emd.sift.sift(red_norm)
         sum_imf = sum(imf)
         max = np.max(plt.psd(sum_imf))
         log_red = 10*math.log10(max)
+
+        print("RR = " + str(log_red))
         red_list.pop(0)
-        respRateArray.append(log_red)
+
+        if (len(respRateArray) <16):
+            respRateArray.append(log_red)
+        else:
+            respRateArray.pop(0)
+            respRateArray.append(log_red)
         
-        return red_list[0]
+        finalbr = sum(respRateArray)/16
+        
+        return finalbr
 
 # APP ROUTES
 @app.route('/heartrate', methods=['GET'])
@@ -145,8 +159,13 @@ def spo2():
 def temperature():
     return str(getData()[3])
 
+@app.route('/breathingrate', methods=['GET'])
+def breathingrate():
+    return str(getRespiratoryRate())
+
 @app.route('/position', methods=['GET'])
 def position():
+    #return "Atrium"
     return getPosition()
 
 @app.route('/location', methods=['GET'])
@@ -156,7 +175,11 @@ def location():
 @app.route('/br', methods=['GET'])
 def br():
     #return getRespiratoryRate()
-    return str(randint(14,16))
+    return str(randint(12,16))
+
+@app.route('/dynamic', methods=['GET'])
+def dynamic():
+    return split_data_shoulder[3]
 
 if __name__ == '__main__':
     app.run(port=5000)

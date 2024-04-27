@@ -1,8 +1,10 @@
 <script>
+import axios from 'axios'
+
 export default {
     data() {
         return {
-            dynamic: ["stationary", "walking", "agitated"],
+            dynamic: ["Stationary", "Shaking", "Falling"],
             state: "Unknown",
             dyn_val: 0,
         };
@@ -12,7 +14,7 @@ export default {
             const path = 'http://127.0.0.1:5000/dynamic';
             axios.get(path)
                 .then((res) => {
-                    this.state = res.data;
+                    this.state = this.dynamic[parseInt(res.data)];
                 })
                 .catch((error) => {
                     console.error(error);
